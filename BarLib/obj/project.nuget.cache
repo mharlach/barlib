@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "EnN1SOnaltlh1CuGB3yQSP1jjMxZyQR7o87iqtY8uS7QuzJWwIy2fqETBJlBBAyYAlmOQUC0yUtcE6XgwUYkqA==",
+  "success": true,
+  "projectFilePath": "/Users/michaelharlach/Documents/source/barlib/BarLib/BarLib.csproj",
+  "expectedPackageFiles": [
+    "/Users/michaelharlach/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/Users/michaelharlach/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
+    "/Users/michaelharlach/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

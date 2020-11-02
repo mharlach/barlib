@@ -1,0 +1,9 @@
+/Users/michaelharlach/Documents/source/barlib/BarLib/bin/Debug/netstandard2.0/BarLib.deps.json
+/Users/michaelharlach/Documents/source/barlib/BarLib/bin/Debug/netstandard2.0/BarLib.dll
+/Users/michaelharlach/Documents/source/barlib/BarLib/bin/Debug/netstandard2.0/BarLib.pdb
+/Users/michaelharlach/Documents/source/barlib/BarLib/obj/Debug/netstandard2.0/BarLib.csprojAssemblyReference.cache
+/Users/michaelharlach/Documents/source/barlib/BarLib/obj/Debug/netstandard2.0/BarLib.AssemblyInfoInputs.cache
+/Users/michaelharlach/Documents/source/barlib/BarLib/obj/Debug/netstandard2.0/BarLib.AssemblyInfo.cs
+/Users/michaelharlach/Documents/source/barlib/BarLib/obj/Debug/netstandard2.0/BarLib.csproj.CoreCompileInputs.cache
+/Users/michaelharlach/Documents/source/barlib/BarLib/obj/Debug/netstandard2.0/BarLib.dll
+/Users/michaelharlach/Documents/source/barlib/BarLib/obj/Debug/netstandard2.0/BarLib.pdb
