@@ -9,7 +9,7 @@ namespace BarLib
         Adjunct,
         Garnish
     }
-    
+
     public class Ingredient
     {
         public Ingredient() { }
@@ -29,6 +29,8 @@ namespace BarLib
 
         [JsonConverter(typeof(StringEnumConverter))]
         public IngredientType IngredientType { get; set; }
+
+        public int PartitionKey() => System.Math.Abs(Id.GetHashCode() % 1000);
 
     }
 
