@@ -10,20 +10,20 @@ using Newtonsoft.Json;
 
 namespace BarLib.ServiceHost.Functions
 {
-    public class UserBarsController
+    public class UserLibraryController
     {
         public readonly ILogger log;
-        public readonly IStorageContext<UserBar> context;
+        public readonly IStorageContext<UserLibrary> context;
 
-        public UserBarsController(ILogger log, IStorageContext<UserBar> context)
+        public UserLibraryController(ILogger log, IStorageContext<UserLibrary> context)
         {
             this.log = log;
             this.context = context;
         }
 
-        [FunctionName("UserBars")]
+        [FunctionName("UserLibrary")]
         public async Task<IActionResult> RunAsync(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post","put","delete", Route = "users/{userId}/bar")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post","put","delete", Route = "users/{userId}/library")] HttpRequest req,
             string userId)
         {
             IActionResult response = req.Method.ToUpper() switch
@@ -54,7 +54,7 @@ namespace BarLib.ServiceHost.Functions
         private async Task<IActionResult> UpsertAsync(HttpRequest req)
         {
             var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            var bar = JsonConvert.DeserializeObject<UserBar>(requestBody);
+            var bar = JsonConvert.DeserializeObject<UserLibrary>(requestBody);
             bar.HashCode = bar.GetHashCode();
 
             bar = await context.UpsertAsync(bar);

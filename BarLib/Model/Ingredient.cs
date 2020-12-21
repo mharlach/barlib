@@ -10,7 +10,7 @@ namespace BarLib
         Garnish
     }
 
-    public class Ingredient
+    public class Ingredient : ModelBase
     {
         public Ingredient() { }
 
@@ -20,8 +20,6 @@ namespace BarLib
             this.Name = name;
             this.IngredientType = type;
         }
-
-        public string Id { get; set; } = string.Empty;
 
         public string Name { get; set; } = string.Empty;
 

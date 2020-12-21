@@ -23,11 +23,11 @@ namespace BarLib.ServiceHost
 
         public async Task<IList<UserBar>> GetAsync() => await GetAsync<UserBar>(container);
 
-        public async Task<UserBar> GetAsync(string id) => Get<UserBar>(container,z=>z.UserId== new System.Guid(id));
+        public async Task<UserBar> GetAsync(string id) => Get<UserBar>(container, z => z.UserId == id);
 
         public async Task<UserBar> UpsertAsync(UserBar item) => await UpsertAsync<UserBar>(container, item.UserId.ToString(), item);
     }
 
-    
+
 
 }

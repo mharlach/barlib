@@ -17,7 +17,7 @@ namespace BarLib.Tests
         {
             var user = new UserBar
             {
-                UserId = Guid.NewGuid(),
+                UserId = Guid.NewGuid().ToString(),
                 AvailableIngredients = new List<string>{"1", "3","7"},
             };
 
