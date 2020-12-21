@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Extensions.Configuration;
+using System;
+using System.Linq;
 
 namespace BarLib.ServiceHost
 {
@@ -21,9 +23,9 @@ namespace BarLib.ServiceHost
 
         public async Task<IList<UserBar>> GetAsync() => await GetAsync<UserBar>(container);
 
-        public async Task<UserBar> GetAsync(string id) => Get<UserBar>(container,z=>z.Id==id.ToLower());
+        public async Task<UserBar> GetAsync(string id) => Get<UserBar>(container,z=>z.UserId== new System.Guid(id));
 
-        public async Task<UserBar> UpsertAsync(UserBar item) => await UpsertAsync<UserBar>(container, item.Id, item);
+        public async Task<UserBar> UpsertAsync(UserBar item) => await UpsertAsync<UserBar>(container, item.UserId.ToString(), item);
     }
 
     
