@@ -14,6 +14,7 @@ namespace BarLib.ServiceHost
             builder.Services.AddSingleton<IStorageContext<Ingredient>,IngredientStorageContext>();
             builder.Services.AddSingleton<IStorageContext<Drink>,DrinkStorageContext>();
             builder.Services.AddSingleton<IStorageContext<UserBar>,UserBarStorageContext>();
+            builder.Services.AddSingleton<ILibraryGenerator,BruteForceLibraryGenerator>();
         }
 
         public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)

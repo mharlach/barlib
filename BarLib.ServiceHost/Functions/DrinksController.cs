@@ -22,7 +22,7 @@ namespace BarLib.ServiceHost.Functions
         }
 
         [FunctionName("Drinks_GetPost")]
-        public async Task<IActionResult> RunAsync(
+        public async Task<IActionResult> RunAsync_GetPost(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "drinks")] HttpRequest req)
         {
             IActionResult response = req.Method.ToUpper() switch
@@ -36,8 +36,8 @@ namespace BarLib.ServiceHost.Functions
         }
 
         [FunctionName("Drinks_GetDelete")]
-        public async Task<IActionResult> RunAsync(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "delete", Route = "drinks/{id}")] HttpRequest req,
+        public async Task<IActionResult> RunAsync_GetDelete(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "delete", "put" Route = "drinks/{id}")] HttpRequest req,
             string id)
         {
             IActionResult response = req.Method.ToUpper() switch
@@ -69,10 +69,16 @@ namespace BarLib.ServiceHost.Functions
             }
         }
 
-        private async Task<IActionResult> UpsertAsync(HttpRequest req)
+        private async Task<IActionResult> UpsertAsync(HttpRequest req, string? id)
         {
             var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var ingredient = JsonConvert.DeserializeObject<Drink>(requestBody);
+
+            id = id ?? Guid.NewGuid().ToString();
+            if (ingredient.Id.Equals(id, StringComparison.OrdinalIgnoreCase) == false)
+            {
+                return new BadRequestObjectResult("Id in model doesn't match route")
+            }
 
             ingredient = await context.UpsertAsync(ingredient);
 

@@ -22,7 +22,7 @@ namespace BarLib.ServiceHost.Functions
         }
 
         [FunctionName("Ingredients_GetPost")]
-        public async Task<IActionResult> RunAsync(
+        public async Task<IActionResult> RunAsync_GetPost(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "ingredients")] HttpRequest req)
         {
             IActionResult response = req.Method.ToUpper() switch
@@ -36,7 +36,7 @@ namespace BarLib.ServiceHost.Functions
         }
 
         [FunctionName("Ingredients_GetDelete")]
-        public async Task<IActionResult> RunAsync(
+        public async Task<IActionResult> RunAsync_GetDelete(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "delete", Route = "ingredients/{id}")] HttpRequest req,
             string id)
         {

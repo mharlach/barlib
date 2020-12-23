@@ -12,8 +12,8 @@ namespace BarLib.ServiceHost.Functions
 {
     public class UserLibraryController
     {
-        public readonly ILogger log;
-        public readonly IStorageContext<UserLibrary> context;
+        private readonly ILogger log;
+        private readonly IStorageContext<UserLibrary> context;
 
         public UserLibraryController(ILogger log, IStorageContext<UserLibrary> context)
         {
@@ -37,6 +37,8 @@ namespace BarLib.ServiceHost.Functions
 
             return response;
         }
+
+        
 
         private async Task<IActionResult> GetAsync(string id)
         {
