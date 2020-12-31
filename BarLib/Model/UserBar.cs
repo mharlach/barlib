@@ -1,24 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace BarLib
 {
 
-    public class UserBar : ModelBase
+    public class UserBar : UserModelBase
     {
-        public string UserId { get; set; } = string.Empty;
-        public List<string> AvailableIngredients { get; set; } = new List<string>();
-
-        public int HashCode { get; set; }
+        [JsonProperty("availableIngredients")]
+        public List<ItemPair> AvailableIngredients { get; set; } = new List<ItemPair>();
 
         public override int GetHashCode()
         {
-            int hashCode = 0;
-            AvailableIngredients.ForEach(i => hashCode ^= i.GetHashCode());
+            HashCode = base.GetHashCode();
+            foreach (var i in AvailableIngredients)
+            {
+                HashCode = HashCode ^ i.GetHashCode();
+            }
 
-            return hashCode;
-
+            return HashCode;
         }
+
     }
 }

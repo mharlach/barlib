@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace BarLib
 {
@@ -12,13 +13,28 @@ namespace BarLib
             this.Id = id;
             this.Name = name;
         }
-        
-        public string Name { get; set; } = string.Empty;
+
+        [JsonProperty("description")]
         public string Description { get; set; } = string.Empty;
-        public List<DrinkStep> Steps { get; set; } = new List<DrinkStep>();
 
-        public void AddStep(string IngredientId, float quantity, string units) => Steps.Add(new DrinkStep(IngredientId, quantity, units));
+        [JsonProperty("ingredients")]
+        public List<DrinkIngredient> Ingredients { get; set; } = new List<DrinkIngredient>();
 
-        public IEnumerable<string> GetIngredients() => Steps.Select(x => x.IngredientId);
+        [JsonProperty("steps")]
+        public List<string> Steps { get; set; } = new List<string>();
+
+        public void AddStep(string IngredientId, float quantity, string units) => Ingredients.Add(new DrinkIngredient(IngredientId, quantity, units));
+
+        public IEnumerable<string> GetIngredients() => Ingredients.Select(x => x.IngredientId);
+    }
+
+    public class ItemPair
+    {
+
+        [JsonProperty("id")]
+        public string Id { get; set; } = string.Empty;
+
+        [JsonProperty("name")]
+        public string Name { get; set; } = string.Empty;
     }
 }

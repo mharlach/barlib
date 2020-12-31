@@ -15,7 +15,7 @@ namespace BarLib.ServiceHost.Functions
         public readonly ILogger log;
         public readonly IStorageContext<Drink> context;
 
-        public DrinksController(ILogger log, IStorageContext<Drink> context)
+        public DrinksController(ILogger<DrinksController> log, IStorageContext<Drink> context)
         {
             this.log = log;
             this.context = context;
@@ -28,7 +28,7 @@ namespace BarLib.ServiceHost.Functions
             IActionResult response = req.Method.ToUpper() switch
             {
                 "GET" => await GetAsync(),
-                "POST" => await UpsertAsync(req),
+                "POST" => await UpsertAsync(req, null),
                 _ => new BadRequestResult(),
             };
 
@@ -37,7 +37,7 @@ namespace BarLib.ServiceHost.Functions
 
         [FunctionName("Drinks_GetDelete")]
         public async Task<IActionResult> RunAsync_GetDelete(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "delete", "put" Route = "drinks/{id}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "delete", "put", Route = "drinks/{id}")] HttpRequest req,
             string id)
         {
             IActionResult response = req.Method.ToUpper() switch
@@ -75,10 +75,7 @@ namespace BarLib.ServiceHost.Functions
             var ingredient = JsonConvert.DeserializeObject<Drink>(requestBody);
 
             id = id ?? Guid.NewGuid().ToString();
-            if (ingredient.Id.Equals(id, StringComparison.OrdinalIgnoreCase) == false)
-            {
-                return new BadRequestObjectResult("Id in model doesn't match route")
-            }
+            ingredient.Id = id;
 
             ingredient = await context.UpsertAsync(ingredient);
 

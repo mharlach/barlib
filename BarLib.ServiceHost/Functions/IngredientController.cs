@@ -10,12 +10,11 @@ using Newtonsoft.Json;
 
 namespace BarLib.ServiceHost.Functions
 {
-    public class IngredientController
+    public class IngredientController : ControllerBase
     {
         public readonly ILogger log;
         public readonly IStorageContext<Ingredient> context;
-
-        public IngredientController(ILogger log, IStorageContext<Ingredient> context)
+        public IngredientController(ILogger<IngredientController> log, IStorageContext<Ingredient> context)
         {
             this.log = log;
             this.context = context;
@@ -28,7 +27,7 @@ namespace BarLib.ServiceHost.Functions
             IActionResult response = req.Method.ToUpper() switch
             {
                 "GET" => await GetAsync(),
-                "POST" => await UpsertAsync(req),
+                "POST" => await UpsertAsync(req, null),
                 _ => new BadRequestResult(),
             };
 
@@ -37,13 +36,14 @@ namespace BarLib.ServiceHost.Functions
 
         [FunctionName("Ingredients_GetDelete")]
         public async Task<IActionResult> RunAsync_GetDelete(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "delete", Route = "ingredients/{id}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "delete", "put", Route = "ingredients/{id}")] HttpRequest req,
             string id)
         {
             IActionResult response = req.Method.ToUpper() switch
             {
                 "GET" => await GetAsync(id),
                 "DELETE" => await DeleteAsync(id),
+                "PUT" => await UpsertAsync(req, id),
                 _ => new BadRequestResult(),
             };
 
@@ -69,10 +69,17 @@ namespace BarLib.ServiceHost.Functions
             }
         }
 
-        private async Task<IActionResult> UpsertAsync(HttpRequest req)
+        private async Task<IActionResult> UpsertAsync(HttpRequest req, string? id)
         {
             var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var ingredient = JsonConvert.DeserializeObject<Ingredient>(requestBody);
+            id = id ?? Guid.NewGuid().ToString();
+            ingredient.Id = id;
+
+            if (TryValidateObject(ingredient, out var errors) == false)
+            {
+                return new BadRequestObjectResult(errors);
+            }
 
             ingredient = await context.UpsertAsync(ingredient);
 

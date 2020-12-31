@@ -21,14 +21,15 @@ namespace BarLib
 
         public async Task<List<Drink>> BuildAsync(UserBar bar)
         {
+            var barContentsKeys = bar.AvailableIngredients.Select(x=>x.Id).ToList();
             var allDrinks = await drinkContext.GetAsync();
             var allowed = new List<Drink>();
             foreach (var d in allDrinks)
             {
                 bool isAllowed = true;
-                foreach (var s in d.Steps)
+                foreach (var s in d.Ingredients)
                 {
-                    if (bar.AvailableIngredients.Contains(s.IngredientId) == false)
+                    if (barContentsKeys.Contains(s.IngredientId) == false)
                     {
                         isAllowed = false;
                         break;
@@ -45,25 +46,25 @@ namespace BarLib
         }
     }
 
-    public class LibraryGenerator : ILibraryGenerator
-    {
-        private readonly IStorageContext<Drink> drinkContext;
-        private readonly IStorageContext<Ingredient> ingredientContext;
+    // public class LibraryGenerator : ILibraryGenerator
+    // {
+    //     private readonly IStorageContext<Drink> drinkContext;
+    //     private readonly IStorageContext<Ingredient> ingredientContext;
 
-        public LibraryGenerator(
-            IStorageContext<Drink> drinkContext,
-            IStorageContext<Ingredient> ingredientContext)
-        {
-            this.drinkContext = drinkContext;
-            this.ingredientContext = ingredientContext;
-        }
+    //     public LibraryGenerator(
+    //         IStorageContext<Drink> drinkContext,
+    //         IStorageContext<Ingredient> ingredientContext)
+    //     {
+    //         this.drinkContext = drinkContext;
+    //         this.ingredientContext = ingredientContext;
+    //     }
 
-        public async Task<List<Drink>> BuildAsync(UserBar bar)
-        {
-            var allowed = (await drinkContext.GetAsync())
-                .Where(d=>d.GetIngredients().Except(bar.AvailableIngredients).Any());
+    //     public async Task<List<Drink>> BuildAsync(UserBar bar)
+    //     {
+    //         var allowed = (await drinkContext.GetAsync())
+    //             .Where(d=>d.GetIngredients().Except(bar.AvailableIngredients).Any());
             
-            return allowed.ToList();
-        }
-    }
+    //         return allowed.ToList();
+    //     }
+    // }
 }

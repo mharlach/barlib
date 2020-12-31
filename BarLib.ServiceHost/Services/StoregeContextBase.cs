@@ -5,16 +5,34 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 
 namespace BarLib.ServiceHost
 {
-    public abstract class StorageContextBase
+    public abstract class StorageContextBase<T> where T : StorageObjectBase
     {
-        public async Task<List<T>> GetAsync<T>(Container container){
+        protected readonly Container container;
+        private ILogger log;
+
+        public StorageContextBase(ILoggerFactory factory, IConfiguration configuration, string container)
+        {
+            this.log = factory.CreateLogger<StorageContextBase<T>>();
+            var connectionString = configuration.GetValue<string>("Cosmos:ConnectionString");
+
+            var client = new CosmosClient(connectionString);
+            this.container = client.GetContainer("barlib", container);
+        }
+
+        public int PartitionKey(string Id) => System.Math.Abs(Id.GetHashCode() % 1000);
+
+        public async Task<IList<T>> GetAsync()
+        {
             var query = container.GetItemQueryIterator<T>("SELECT * FROM c");
             var items = new List<T>();
 
-            while(query.HasMoreResults){
+            while (query.HasMoreResults)
+            {
                 var sub = await query.ReadNextAsync();
                 items.AddRange(sub.Resource);
             }
@@ -22,28 +40,36 @@ namespace BarLib.ServiceHost
             return items;
         }
 
-        public T Get<T>(Container container, System.Linq.Expressions.Expression<System.Func<T, bool>> predicate)
+        public async Task<T?> GetAsync(QueryDefinition queryDef)
         {
-            var item = container.GetItemLinqQueryable<T>()
-            .Where(predicate)
-            .AsEnumerable()
-            .FirstOrDefault();
+            // var queryDef = new QueryDefinition("SELECT * FROM c WHERE c.id=@id").WithParameter("@id", id);
+            var query = container.GetItemQueryIterator<T>(queryDef);
 
-            return item;
+            if (query.HasMoreResults)
+            {
+                var items = await query.ReadNextAsync();
+                var item = items.Resource.FirstOrDefault();
+
+                return item;
+            }
+
+            return null;
         }
 
-        public async Task<T> UpsertAsync<T>(Container container, string id, T item)
+        public async Task<T> UpsertAsync(T item)
         {
-            var pk = new PartitionKey(PartitionKey(id));
-            var response = await container.UpsertItemAsync<T>(item, pk);
+            item.PartitionKey = PartitionKey(item.Id).ToString();
+            var response = await container.UpsertItemAsync<T>(item, new Microsoft.Azure.Cosmos.PartitionKey(item.PartitionKey));
 
             return response.Resource;
         }
-        public async Task DeleteAsync<T>(Container container, string id)
-        {
-            await container.DeleteItemAsync<T>(id, new PartitionKey(PartitionKey(id)));
-        }
 
-        public int PartitionKey(string Id) => System.Math.Abs(Id.GetHashCode() % 1000);
+        public async Task DeleteAsync(string id)
+        {
+            var pk = PartitionKey(id);
+            await container.DeleteItemAsync<T>(id, new Microsoft.Azure.Cosmos.PartitionKey(pk));
+        }
     }
+
+
 }

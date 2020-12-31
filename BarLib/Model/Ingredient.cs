@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -7,7 +8,10 @@ namespace BarLib
     {
         Spirit,
         Adjunct,
-        Garnish
+        Garnish,
+        Liqueur,
+        Beer,
+        Wine
     }
 
     public class Ingredient : ModelBase
@@ -21,15 +25,13 @@ namespace BarLib
             this.IngredientType = type;
         }
 
-        public string Name { get; set; } = string.Empty;
-
+        [JsonProperty("description")]
         public string Description { get; set; } = string.Empty;
 
+        [Required]
         [JsonConverter(typeof(StringEnumConverter))]
+        [JsonProperty("ingredientType")]
         public IngredientType IngredientType { get; set; }
-
-        public int PartitionKey() => System.Math.Abs(Id.GetHashCode() % 1000);
-
     }
 
 }

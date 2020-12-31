@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace BarLib
 {
-    public interface IStorageContext<T> where T : class
+    public interface IStorageContext<T> where T : StorageObjectBase
     {
         Task<IList<T>> GetAsync();
         Task<T?> GetAsync(string id);

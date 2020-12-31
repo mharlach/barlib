@@ -39,10 +39,22 @@ namespace BarLib.ServiceHost.Functions
             }
 
             var updatedDrinks = await libraryGenerator.BuildAsync(bar);
-            
+
             var library = await getLibraryTask;
+            if (library == null)
+            {
+                library = new UserLibrary
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    UserId = userId,
+                };
+            }
             library.Updated = DateTime.UtcNow;
-            library.Drinks = updatedDrinks.Select(x=>x.Id).ToList();
+            library.Drinks = updatedDrinks.Select(x => new ItemPair
+            {
+                Id = x.Id,
+                Name = x.Name,
+            }).ToList();
 
             return new NoContentResult();
         }
