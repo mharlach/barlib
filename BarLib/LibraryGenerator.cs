@@ -22,19 +22,23 @@ namespace BarLib
         public async Task<List<Drink>> BuildAsync(UserBar bar)
         {
             var barContentsKeys = bar.AvailableIngredients.Select(x=>x.Id).ToList();
+
+            // select * from d where d.ingredients.id
             var allDrinks = await drinkContext.GetAsync();
             var allowed = new List<Drink>();
             foreach (var d in allDrinks)
             {
-                bool isAllowed = true;
-                foreach (var s in d.Ingredients)
-                {
-                    if (barContentsKeys.Contains(s.IngredientId) == false)
-                    {
-                        isAllowed = false;
-                        break;
-                    }
-                }
+                // bool isAllowed = true;
+                var isAllowed = !d.Ingredients.Select(x=>x.IngredientId).Except(barContentsKeys).Any();
+
+                // foreach (var s in d.Ingredients)
+                // {
+                //     if (barContentsKeys.Contains(s.IngredientId) == false)
+                //     {
+                //         isAllowed = false;
+                //         break;
+                //     }
+                // }
 
                 if (isAllowed)
                 {

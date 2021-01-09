@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.Azure.Cosmos;
 
 namespace BarLib
 {
@@ -7,6 +8,7 @@ namespace BarLib
     {
         Task<IList<T>> GetAsync();
         Task<T?> GetAsync(string id);
+        Task<IList<T>> GetAsync(QueryDefinition queryDef);
         Task<T> UpsertAsync(T item);
         Task DeleteAsync(string id);
     }

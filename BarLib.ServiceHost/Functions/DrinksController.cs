@@ -7,18 +7,21 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Microsoft.Azure.Cosmos;
 
 namespace BarLib.ServiceHost.Functions
 {
     public class DrinksController
     {
-        public readonly ILogger log;
-        public readonly IStorageContext<Drink> context;
+        private readonly ILogger log;
+        private readonly IStorageContext<Drink> drinkContext;
+        private readonly IStorageContext<Ingredient> ingredientContext;
 
-        public DrinksController(ILogger<DrinksController> log, IStorageContext<Drink> context)
+        public DrinksController(ILogger<DrinksController> log, IStorageContext<Drink> drinkContext, IStorageContext<Ingredient> ingredientContext)
         {
             this.log = log;
-            this.context = context;
+            this.drinkContext = drinkContext;
+            this.ingredientContext = ingredientContext;
         }
 
         [FunctionName("Drinks_GetPost")]
@@ -52,13 +55,13 @@ namespace BarLib.ServiceHost.Functions
 
         private async Task<IActionResult> GetAsync()
         {
-            var items = await context.GetAsync();
+            var items = await drinkContext.GetAsync();
             return new OkObjectResult(items);
         }
 
         private async Task<IActionResult> GetAsync(string id)
         {
-            var item = await context.GetAsync(id);
+            var item = await drinkContext.GetAsync(id);
             if (item == null)
             {
                 return new NotFoundResult();
@@ -72,19 +75,19 @@ namespace BarLib.ServiceHost.Functions
         private async Task<IActionResult> UpsertAsync(HttpRequest req, string? id)
         {
             var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            var ingredient = JsonConvert.DeserializeObject<Drink>(requestBody);
+            var drink = JsonConvert.DeserializeObject<Drink>(requestBody);
 
             id = id ?? Guid.NewGuid().ToString();
-            ingredient.Id = id;
+            drink.Id = id;
 
-            ingredient = await context.UpsertAsync(ingredient);
+            drink = await drinkContext.UpsertAsync(drink);
 
-            return new OkObjectResult(ingredient);
+            return new OkObjectResult(drink);
         }
 
         private async Task<IActionResult> DeleteAsync(string id)
         {
-            await context.DeleteAsync(id);
+            await drinkContext.DeleteAsync(id);
             return new NoContentResult();
         }
 

@@ -40,20 +40,18 @@ namespace BarLib.ServiceHost
             return items;
         }
 
-        public async Task<T?> GetAsync(QueryDefinition queryDef)
+        public async Task<IList<T>> GetAsync(QueryDefinition queryDef)
         {
-            // var queryDef = new QueryDefinition("SELECT * FROM c WHERE c.id=@id").WithParameter("@id", id);
             var query = container.GetItemQueryIterator<T>(queryDef);
+            var results = new List<T>();
 
-            if (query.HasMoreResults)
+            while (query.HasMoreResults)
             {
                 var items = await query.ReadNextAsync();
-                var item = items.Resource.FirstOrDefault();
-
-                return item;
+                results.AddRange(items.Resource);
             }
 
-            return null;
+            return results;
         }
 
         public async Task<T> UpsertAsync(T item)
