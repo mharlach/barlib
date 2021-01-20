@@ -9,13 +9,13 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/BarLib.Console/bin/Debug/netcoreapp3.1/BarLib.Console.dll",
+            "program": "${workspaceFolder}/${input:project}/bin/Debug/netcoreapp3.1/${input:project}.dll",
             "args": [
                 "-a",
                 "-n",
                 "Booze"
             ],
-            "cwd": "${workspaceFolder}/BarLib.Console",
+            "cwd": "${workspaceFolder}/${input:project}",
             "console": "internalConsole",
             "stopAtEntry": false
         },
@@ -30,6 +30,15 @@
             "type": "coreclr",
             "request": "attach",
             "processId": "${command:azureFunctions.pickProcess}"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "project",
+            "options": ["BarLib.ConsoleApp","BarLib.ServiceHost"],
+            "default": "BarLib.ConsoleApp",
+            "description": "Select project to build",
+            "type": "pickString"
         }
     ]
 }

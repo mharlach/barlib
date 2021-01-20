@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarLib.Tests", "BarLib.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarLib.ServiceHost", "BarLib.ServiceHost\BarLib.ServiceHost.csproj", "{411EBF69-3755-4B4F-8084-2DDB6BDB7AD9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarLib.ConsoleApp", "BarLib.ConsoleApp\BarLib.ConsoleApp.csproj", "{4213027F-B60C-4BF8-A139-B11C4CB2E26A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,5 +72,17 @@ Global
 		{411EBF69-3755-4B4F-8084-2DDB6BDB7AD9}.Release|x64.Build.0 = Release|Any CPU
 		{411EBF69-3755-4B4F-8084-2DDB6BDB7AD9}.Release|x86.ActiveCfg = Release|Any CPU
 		{411EBF69-3755-4B4F-8084-2DDB6BDB7AD9}.Release|x86.Build.0 = Release|Any CPU
+		{4213027F-B60C-4BF8-A139-B11C4CB2E26A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4213027F-B60C-4BF8-A139-B11C4CB2E26A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4213027F-B60C-4BF8-A139-B11C4CB2E26A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4213027F-B60C-4BF8-A139-B11C4CB2E26A}.Debug|x64.Build.0 = Debug|Any CPU
+		{4213027F-B60C-4BF8-A139-B11C4CB2E26A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4213027F-B60C-4BF8-A139-B11C4CB2E26A}.Debug|x86.Build.0 = Debug|Any CPU
+		{4213027F-B60C-4BF8-A139-B11C4CB2E26A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4213027F-B60C-4BF8-A139-B11C4CB2E26A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4213027F-B60C-4BF8-A139-B11C4CB2E26A}.Release|x64.ActiveCfg = Release|Any CPU
+		{4213027F-B60C-4BF8-A139-B11C4CB2E26A}.Release|x64.Build.0 = Release|Any CPU
+		{4213027F-B60C-4BF8-A139-B11C4CB2E26A}.Release|x86.ActiveCfg = Release|Any CPU
+		{4213027F-B60C-4BF8-A139-B11C4CB2E26A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

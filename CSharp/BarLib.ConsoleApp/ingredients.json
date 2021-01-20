@@ -1,0 +1,533 @@
+[
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Whiskey",
+    "id": "4b2f5cd1-00ce-47e5-a5fe-7b949e9c7a5d",
+    "pk": "46",
+    "created": "2021-01-18T02:44:09.1801405Z",
+    "updated": "2021-01-18T02:44:09.1802275Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Vodka",
+    "id": "d65fd751-0279-4de9-b10c-7cecc71145cc",
+    "pk": "325",
+    "created": "2021-01-18T02:44:09.1807968Z",
+    "updated": "2021-01-18T02:44:09.1807979Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Gin",
+    "id": "f8cdd172-d5be-4722-8dbc-1fd5cb6ff427",
+    "pk": "10",
+    "created": "2021-01-18T02:44:09.1808018Z",
+    "updated": "2021-01-18T02:44:09.1808019Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Tequila",
+    "id": "8019c543-6925-4106-b64c-03ad1a2e70ce",
+    "pk": "138",
+    "created": "2021-01-18T02:44:09.1808027Z",
+    "updated": "2021-01-18T02:44:09.1808027Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "White Rum",
+    "id": "b0100185-3463-4936-8bb9-d28262f72097",
+    "pk": "192",
+    "created": "2021-01-18T02:44:09.1808034Z",
+    "updated": "2021-01-18T02:44:09.1808035Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Liqueur",
+    "name": "Campari",
+    "id": "a00612cf-ec09-4655-ac91-db7bd8a7da52",
+    "pk": "385",
+    "created": "2021-01-18T02:44:09.1808054Z",
+    "updated": "2021-01-18T02:44:09.1808055Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Wine",
+    "name": "Dry Vermouth",
+    "id": "3d71cd78-a316-47fb-850b-263d48dd6691",
+    "pk": "977",
+    "created": "2021-01-18T02:44:09.1808062Z",
+    "updated": "2021-01-18T02:44:09.1808063Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Wine",
+    "name": "Sweet Vermouth",
+    "id": "e72836ee-8d96-4262-9402-e32fde1237aa",
+    "pk": "900",
+    "created": "2021-01-18T02:44:09.1808069Z",
+    "updated": "2021-01-18T02:44:09.180807Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Bourbon",
+    "id": "e0d87366-6c46-4f73-b17c-015385bd683b",
+    "pk": "708",
+    "created": "2021-01-18T02:44:09.1808082Z",
+    "updated": "2021-01-18T02:44:09.1808083Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Rye",
+    "id": "19c72926-54d3-4780-b8a1-5921a8d4e169",
+    "pk": "604",
+    "created": "2021-01-18T02:44:09.180809Z",
+    "updated": "2021-01-18T02:44:09.1808091Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Angostura Bitters",
+    "id": "b2252aa5-46e2-4c7c-9a2d-6c396a295aad",
+    "pk": "585",
+    "created": "2021-01-18T02:44:09.1808098Z",
+    "updated": "2021-01-18T02:44:09.1808098Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Garnish",
+    "name": "Maraschino Cherry",
+    "id": "5eb1c994-a286-49d1-853b-f1f7f0896e49",
+    "pk": "62",
+    "created": "2021-01-18T02:44:09.1808105Z",
+    "updated": "2021-01-18T02:44:09.1808106Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Lime Juice",
+    "id": "dab87b6b-21bf-4fb9-b6cd-9095b5c190bc",
+    "pk": "565",
+    "created": "2021-01-18T02:44:09.1808112Z",
+    "updated": "2021-01-18T02:44:09.1808113Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Simple Syrup",
+    "id": "ab3c3b30-d61e-4e0b-ac16-90034bf8e25a",
+    "pk": "692",
+    "created": "2021-01-18T02:44:09.1808119Z",
+    "updated": "2021-01-18T02:44:09.1808119Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Cognac",
+    "id": "c3e51fc5-39dc-420e-9930-e5b9ecf65890",
+    "pk": "635",
+    "created": "2021-01-18T02:44:09.1808126Z",
+    "updated": "2021-01-18T02:44:09.1808127Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Lemon Juice",
+    "id": "9cb24e50-7355-4f37-8120-6d2d09da77c0",
+    "pk": "269",
+    "created": "2021-01-18T02:44:09.1808133Z",
+    "updated": "2021-01-18T02:44:09.1808133Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Liqueur",
+    "name": "Triple Sec",
+    "id": "baf27039-daa8-49de-be6c-2383dd445500",
+    "pk": "477",
+    "created": "2021-01-18T02:44:09.1808141Z",
+    "updated": "2021-01-18T02:44:09.1808141Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Brandy",
+    "id": "240f8171-54c0-4bdb-8e8f-4dc76fdfd0dc",
+    "pk": "961",
+    "created": "2021-01-18T02:44:09.180819Z",
+    "updated": "2021-01-18T02:44:09.1808191Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Liqueur",
+    "name": "Cointreau",
+    "id": "e98bfa86-7fe2-433d-9a23-e76a9187b276",
+    "pk": "832",
+    "created": "2021-01-18T02:44:09.1808198Z",
+    "updated": "2021-01-18T02:44:09.1808198Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Garnish",
+    "name": "Lime",
+    "id": "74657670-77f2-42bc-9255-de4fd4690c47",
+    "pk": "334",
+    "created": "2021-01-18T02:44:09.1808205Z",
+    "updated": "2021-01-18T02:44:09.1808206Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Sugar",
+    "id": "45c1dcb8-cfcd-43f9-a2ac-a2d8a7783866",
+    "pk": "413",
+    "created": "2021-01-18T02:44:09.1808212Z",
+    "updated": "2021-01-18T02:44:09.1808212Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Mint",
+    "id": "cc8bba4f-218e-40e2-aefa-a6e9cdf5926f",
+    "pk": "564",
+    "created": "2021-01-18T02:44:09.1808218Z",
+    "updated": "2021-01-18T02:44:09.1808219Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Soda Water",
+    "id": "15abec88-fbc6-4fa8-b09b-e50fd38f5988",
+    "pk": "884",
+    "created": "2021-01-18T02:44:09.1808225Z",
+    "updated": "2021-01-18T02:44:09.1808226Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Absinthe",
+    "id": "a7304d2a-bb97-45fd-8c0c-a99b4b4a8b7b",
+    "pk": "752",
+    "created": "2021-01-18T02:44:09.1808232Z",
+    "updated": "2021-01-18T02:44:09.1808233Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Sugar Cube",
+    "id": "f5aa0026-00ab-4de5-b037-4313a0562e56",
+    "pk": "287",
+    "created": "2021-01-18T02:44:09.180824Z",
+    "updated": "2021-01-18T02:44:09.180824Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Peychaud's Bitters",
+    "id": "82ac59a0-581a-4ea2-bdc0-6801086d4ebd",
+    "pk": "332",
+    "created": "2021-01-18T02:44:09.1808246Z",
+    "updated": "2021-01-18T02:44:09.1808247Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Egg White",
+    "id": "094037a4-783c-48ca-b704-0f2d74fcb1d1",
+    "pk": "695",
+    "created": "2021-01-18T02:44:09.1808253Z",
+    "updated": "2021-01-18T02:44:09.1808253Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Gomme Syrup",
+    "id": "f098cb7b-b1fa-4910-8780-32dab3fbfa9c",
+    "pk": "21",
+    "created": "2021-01-18T02:44:09.1808259Z",
+    "updated": "2021-01-18T02:44:09.1808259Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Powdered Sugar",
+    "id": "e53d1bdd-6de1-4c9c-a64f-bb3a2a884a6e",
+    "pk": "175",
+    "created": "2021-01-18T02:44:09.1808265Z",
+    "updated": "2021-01-18T02:44:09.1808266Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Water",
+    "id": "d780e315-f94f-4919-93db-42d8cb564a72",
+    "pk": "197",
+    "created": "2021-01-18T02:44:09.1808272Z",
+    "updated": "2021-01-18T02:44:09.1808272Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Wine",
+    "name": "Champagne",
+    "id": "8108f352-76ea-4c5b-9dfb-024129922f8b",
+    "pk": "513",
+    "created": "2021-01-18T02:44:09.1808278Z",
+    "updated": "2021-01-18T02:44:09.1808279Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Garnish",
+    "name": "Olive",
+    "id": "ce3ed002-ee6f-4731-a071-ac77710ba1a7",
+    "pk": "748",
+    "created": "2021-01-18T02:44:09.1808285Z",
+    "updated": "2021-01-18T02:44:09.1808285Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Garnish",
+    "name": "Lemon",
+    "id": "891df45f-4334-4098-8071-c652eb38e8a6",
+    "pk": "468",
+    "created": "2021-01-18T02:44:09.1808292Z",
+    "updated": "2021-01-18T02:44:09.1808293Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Garnish",
+    "name": "Orange",
+    "id": "581f049c-066f-482c-a1b3-0517bfd2c660",
+    "pk": "605",
+    "created": "2021-01-18T02:44:09.1808301Z",
+    "updated": "2021-01-18T02:44:09.1808301Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Orange Juice",
+    "id": "13f05ff2-a942-43fa-a3f5-5456b134ebd7",
+    "pk": "221",
+    "created": "2021-01-18T02:44:09.1808308Z",
+    "updated": "2021-01-18T02:44:09.1808308Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Grenadine Syrup",
+    "id": "a936bfd9-4673-4bca-b799-5fc1df9779ea",
+    "pk": "470",
+    "created": "2021-01-18T02:44:09.1808314Z",
+    "updated": "2021-01-18T02:44:09.1808314Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Old Tom Gin",
+    "id": "d48b74c1-773f-4ac6-83ac-69251bac104a",
+    "pk": "974",
+    "created": "2021-01-18T02:44:09.180832Z",
+    "updated": "2021-01-18T02:44:09.1808321Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Pisco",
+    "id": "c8826d0e-d2e3-4e7b-b810-1097b9739b0b",
+    "pk": "401",
+    "created": "2021-01-18T02:44:09.1808326Z",
+    "updated": "2021-01-18T02:44:09.1808327Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Aperol",
+    "id": "fec5eb48-7a1e-4748-891d-5ae272398cd7",
+    "pk": "157",
+    "created": "2021-01-18T02:44:09.1808333Z",
+    "updated": "2021-01-18T02:44:09.1808333Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Wine",
+    "name": "Prosecco",
+    "id": "e4b5008b-a394-4dc4-aa4d-98419422759a",
+    "pk": "904",
+    "created": "2021-01-18T02:44:09.1808339Z",
+    "updated": "2021-01-18T02:44:09.180834Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Tonic Water",
+    "id": "411588f4-4e8c-4cc3-9f66-698da734e4f7",
+    "pk": "85",
+    "created": "2021-01-18T02:44:09.1808368Z",
+    "updated": "2021-01-18T02:44:09.1808369Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Cranberry Juice",
+    "id": "0b185929-398a-4201-9e6e-0ba781ac02a5",
+    "pk": "110",
+    "created": "2021-01-18T02:44:09.1808375Z",
+    "updated": "2021-01-18T02:44:09.1808376Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Cachaça",
+    "id": "2ba1b571-f4bc-457a-b873-1540e0d3d689",
+    "pk": "446",
+    "created": "2021-01-18T02:44:09.1808382Z",
+    "updated": "2021-01-18T02:44:09.1808383Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Brown Sugar",
+    "id": "b86bcaf0-4e48-4092-97d1-af0727237881",
+    "pk": "715",
+    "created": "2021-01-18T02:44:09.1808388Z",
+    "updated": "2021-01-18T02:44:09.1808389Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Liqueur",
+    "name": "Orange Curaçao",
+    "id": "52857752-6b26-44ab-90f1-2cbbe1bdd32b",
+    "pk": "588",
+    "created": "2021-01-18T02:44:09.1808395Z",
+    "updated": "2021-01-18T02:44:09.1808395Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Orgeat Syrup",
+    "id": "cfb4f267-0a8f-48ea-befd-b491b6247de3",
+    "pk": "512",
+    "created": "2021-01-18T02:44:09.1808401Z",
+    "updated": "2021-01-18T02:44:09.1808402Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Dark Rum",
+    "id": "91f9a724-7e86-48fa-b630-395c32672dfc",
+    "pk": "78",
+    "created": "2021-01-18T02:44:09.1808407Z",
+    "updated": "2021-01-18T02:44:09.1808408Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Ginger Beer",
+    "id": "d5787cb9-0120-424e-b077-363aa1b6d14c",
+    "pk": "476",
+    "created": "2021-01-18T02:44:09.1808414Z",
+    "updated": "2021-01-18T02:44:09.1808414Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Fresh Cream",
+    "id": "9d0de94f-6959-44dc-bd2e-9f1c13349bd2",
+    "pk": "146",
+    "created": "2021-01-18T02:44:09.1808421Z",
+    "updated": "2021-01-18T02:44:09.1808422Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Liqueur",
+    "name": "Coffee Liqueur",
+    "id": "71f49122-60c9-4f47-b6b6-4acc40cc3162",
+    "pk": "426",
+    "created": "2021-01-18T02:44:09.1808428Z",
+    "updated": "2021-01-18T02:44:09.1808428Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Liqueur",
+    "name": "Green Charteuse",
+    "id": "d0629391-c297-48af-ac6d-26b0c70134dc",
+    "pk": "488",
+    "created": "2021-01-18T02:44:09.1808434Z",
+    "updated": "2021-01-18T02:44:09.1808434Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Liqueur",
+    "name": "Maraschino Liqueur",
+    "id": "ea3490c3-faa9-4994-9f38-2745324324b0",
+    "pk": "609",
+    "created": "2021-01-18T02:44:09.180844Z",
+    "updated": "2021-01-18T02:44:09.1808441Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Grapefruit Soda",
+    "id": "2302e4f5-cfaf-43ea-bee4-cde6ffd13e09",
+    "pk": "89",
+    "created": "2021-01-18T02:44:09.1808447Z",
+    "updated": "2021-01-18T02:44:09.1808447Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Apple Brandy",
+    "id": "89949c45-178d-455d-bad4-d81ad715548c",
+    "pk": "687",
+    "created": "2021-01-18T02:44:09.1808454Z",
+    "updated": "2021-01-18T02:44:09.1808454Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Spirit",
+    "name": "Calvados",
+    "id": "52daf12e-f835-4ae1-8b76-3da59193118f",
+    "pk": "53",
+    "created": "2021-01-18T02:44:09.180846Z",
+    "updated": "2021-01-18T02:44:09.180846Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Liqueur",
+    "name": "Lillet Blonde",
+    "id": "59f5cd52-c840-41eb-a68a-5fa85b2b5867",
+    "pk": "953",
+    "created": "2021-01-18T02:44:09.1808467Z",
+    "updated": "2021-01-18T02:44:09.1808467Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Cola",
+    "id": "78ddad6c-8b5b-4c81-8e27-5b080f2f9a65",
+    "pk": "46",
+    "created": "2021-01-18T02:44:09.1808475Z",
+    "updated": "2021-01-18T02:44:09.1808475Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Tomato Juics",
+    "id": "f953cc88-b4e6-45af-99db-dbfc5028ae64",
+    "pk": "242",
+    "created": "2021-01-18T02:44:09.1808482Z",
+    "updated": "2021-01-18T02:44:09.1808483Z"
+  },
+  {
+    "description": "",
+    "ingredientType": "Adjunct",
+    "name": "Salt",
+    "id": "3e14d366-b873-4695-a1c8-5a628f284c0c",
+    "pk": "647",
+    "created": "2021-01-18T21:21:20.4364569Z",
+    "updated": "2021-01-18T21:21:20.4364594Z"
+  }
+]

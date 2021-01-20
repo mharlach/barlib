@@ -1,0 +1,640 @@
+[
+  {
+    "description": "",
+    "ingredients": [
+      {
+        "quantity": 1.0,
+        "units": "oz",
+        "ingredientId": "f8cdd172-d5be-4722-8dbc-1fd5cb6ff427",
+        "ingredientName": "Gin"
+      },
+      {
+        "quantity": 1.0,
+        "units": "oz",
+        "ingredientId": "a00612cf-ec09-4655-ac91-db7bd8a7da52",
+        "ingredientName": "Campari"
+      },
+      {
+        "quantity": 1.0,
+        "units": "oz",
+        "ingredientId": "e72836ee-8d96-4262-9402-e32fde1237aa",
+        "ingredientName": "Sweet Vermouth"
+      },
+      {
+        "quantity": 1.0,
+        "units": "Peel",
+        "ingredientId": "581f049c-066f-482c-a1b3-0517bfd2c660",
+        "ingredientName": "Orange"
+      }
+    ],
+    "steps": ["Stir into glass over ice, garnish and serve"],
+    "name": "Negroni",
+    "id": "1bf4ab69-7a4c-46cb-a1dd-e42c6ebdbc6c",
+    "pk": "57",
+    "created": "2021-01-18T21:21:24.8658203Z",
+    "updated": "2021-01-18T21:21:24.8658221Z"
+  },
+  {
+    "description": "",
+    "ingredients": [
+      {
+        "quantity": 2.0,
+        "units": "oz",
+        "ingredientId": "4b2f5cd1-00ce-47e5-a5fe-7b949e9c7a5d",
+        "ingredientName": "Whiskey"
+      },
+      {
+        "quantity": 0.75,
+        "units": "oz",
+        "ingredientId": "e72836ee-8d96-4262-9402-e32fde1237aa",
+        "ingredientName": "Sweet Vermouth"
+      },
+      {
+        "quantity": 1.0,
+        "units": null,
+        "ingredientId": "b2252aa5-46e2-4c7c-9a2d-6c396a295aad",
+        "ingredientName": "Angostura Bitters"
+      },
+      {
+        "quantity": 1.0,
+        "units": null,
+        "ingredientId": "5eb1c994-a286-49d1-853b-f1f7f0896e49",
+        "ingredientName": "Maraschino Cherry"
+      }
+    ],
+    "steps": [
+      "Stirred over ice, strained into a chilled glass, garnished, and served straight up."
+    ],
+    "name": "Manhattan",
+    "id": "3f61d303-6720-472b-a613-4c3b97703ae8",
+    "pk": "944",
+    "created": "2021-01-18T21:21:24.8690672Z",
+    "updated": "2021-01-18T21:21:24.8690688Z"
+  },
+  {
+    "description": "",
+    "ingredients": [
+      {
+        "quantity": 1.5,
+        "units": "oz",
+        "ingredientId": "b0100185-3463-4936-8bb9-d28262f72097",
+        "ingredientName": "White Rum"
+      },
+      {
+        "quantity": 1.0,
+        "units": "oz",
+        "ingredientId": "dab87b6b-21bf-4fb9-b6cd-9095b5c190bc",
+        "ingredientName": "Lime Juice"
+      },
+      {
+        "quantity": 0.5,
+        "units": "oz",
+        "ingredientId": "ab3c3b30-d61e-4e0b-ac16-90034bf8e25a",
+        "ingredientName": "Simple Syrup"
+      },
+      {
+        "quantity": 1.0,
+        "units": "wedge",
+        "ingredientId": "74657670-77f2-42bc-9255-de4fd4690c47",
+        "ingredientName": "Lime"
+      }
+    ],
+    "steps": [
+      "Pour all ingredients into a shaker with ice",
+      "Shake well",
+      "Strain into a chilled cocktail glass"
+    ],
+    "name": "Daquiri",
+    "id": "a49e05eb-d1fd-4556-9b4e-b6265bbda834",
+    "pk": "643",
+    "created": "2021-01-18T21:21:24.8691118Z",
+    "updated": "2021-01-18T21:21:24.869112Z"
+  },
+  {
+    "description": "",
+    "ingredients": [
+      {
+        "quantity": 2.0,
+        "units": "oz",
+        "ingredientId": "c3e51fc5-39dc-420e-9930-e5b9ecf65890",
+        "ingredientName": "Cognac"
+      },
+      {
+        "quantity": 0.75,
+        "units": "oz",
+        "ingredientId": "9cb24e50-7355-4f37-8120-6d2d09da77c0",
+        "ingredientName": "Lemon Juice"
+      },
+      {
+        "quantity": 0.75,
+        "units": "oz",
+        "ingredientId": "baf27039-daa8-49de-be6c-2383dd445500",
+        "ingredientName": "Triple Sec"
+      }
+    ],
+    "steps": [
+      "Pour all ingredients into a shaker with ice",
+      "Shake well",
+      "Strain into a chilled cocktail glass"
+    ],
+    "name": "Sidecar",
+    "id": "d1e34acd-8456-4ece-a12b-298c49a06515",
+    "pk": "370",
+    "created": "2021-01-18T21:21:24.8693692Z",
+    "updated": "2021-01-18T21:21:24.8693695Z"
+  },
+  {
+    "description": "",
+    "ingredients": [
+      {
+        "quantity": 2.0,
+        "units": "oz",
+        "ingredientId": "8019c543-6925-4106-b64c-03ad1a2e70ce",
+        "ingredientName": "Tequila"
+      },
+      {
+        "quantity": 1.0,
+        "units": "oz",
+        "ingredientId": "e98bfa86-7fe2-433d-9a23-e76a9187b276",
+        "ingredientName": "Cointreau"
+      },
+      {
+        "quantity": 1.0,
+        "units": "oz",
+        "ingredientId": "dab87b6b-21bf-4fb9-b6cd-9095b5c190bc",
+        "ingredientName": "Lime Juice"
+      },
+      {
+        "quantity": 1.0,
+        "units": "wedge",
+        "ingredientId": "74657670-77f2-42bc-9255-de4fd4690c47",
+        "ingredientName": "Lime"
+      },
+      {
+        "quantity": 1.0,
+        "units": "N/A",
+        "ingredientId": "3e14d366-b873-4695-a1c8-5a628f284c0c",
+        "ingredientName": "Salt"
+      }
+    ],
+    "steps": [
+      "Rub the rim of the glass with the lime slice to make the salt stick.",
+      "Shake the other ingredients with ice.",
+      "Carefully pour into the glass (Taking care not to dislodge any salt).",
+      "Garnish and serve over ice"
+    ],
+    "name": "Margarita",
+    "id": "5e6569cd-8d9b-4b85-82b5-889acd7248c3",
+    "pk": "321",
+    "created": "2021-01-18T21:21:24.8693823Z",
+    "updated": "2021-01-18T21:21:24.8693824Z"
+  },
+  {
+    "description": "",
+    "ingredients": [
+      {
+        "quantity": 1.5,
+        "units": "oz",
+        "ingredientId": "b0100185-3463-4936-8bb9-d28262f72097",
+        "ingredientName": "White Rum"
+      },
+      {
+        "quantity": 1.0,
+        "units": "oz",
+        "ingredientId": "dab87b6b-21bf-4fb9-b6cd-9095b5c190bc",
+        "ingredientName": "Lime Juice"
+      },
+      {
+        "quantity": 2.0,
+        "units": "tsp",
+        "ingredientId": "45c1dcb8-cfcd-43f9-a2ac-a2d8a7783866",
+        "ingredientName": "Sugar"
+      },
+      {
+        "quantity": 6.0,
+        "units": "Leaves",
+        "ingredientId": "cc8bba4f-218e-40e2-aefa-a6e9cdf5926f",
+        "ingredientName": "Mint"
+      },
+      {
+        "quantity": 6.0,
+        "units": "oz",
+        "ingredientId": "15abec88-fbc6-4fa8-b09b-e50fd38f5988",
+        "ingredientName": "Soda Water"
+      }
+    ],
+    "steps": [
+      "Muddle mint leaves with sugar and lime juice.",
+      "Add rum, ice and top with soda water",
+      "Garnish with extra mint"
+    ],
+    "name": "Mojito",
+    "id": "61bc871e-6f8c-4eb5-a7e2-69c3f74d2506",
+    "pk": "109",
+    "created": "2021-01-18T21:21:24.8693909Z",
+    "updated": "2021-01-18T21:21:24.869391Z"
+  },
+  {
+    "description": "",
+    "ingredients": [
+      {
+        "quantity": 1.5,
+        "units": "oz",
+        "ingredientId": "19c72926-54d3-4780-b8a1-5921a8d4e169",
+        "ingredientName": "Rye"
+      },
+      {
+        "quantity": 0.25,
+        "units": "oz",
+        "ingredientId": "a7304d2a-bb97-45fd-8c0c-a99b4b4a8b7b",
+        "ingredientName": "Absinthe"
+      },
+      {
+        "quantity": 1.0,
+        "units": "Piece",
+        "ingredientId": "f5aa0026-00ab-4de5-b037-4313a0562e56",
+        "ingredientName": "Sugar Cube"
+      },
+      {
+        "quantity": 3.0,
+        "units": "dashes",
+        "ingredientId": "82ac59a0-581a-4ea2-bdc0-6801086d4ebd",
+        "ingredientName": "Peychaud's Bitters"
+      },
+      {
+        "quantity": 1.0,
+        "units": "Peel",
+        "ingredientId": "891df45f-4334-4098-8071-c652eb38e8a6",
+        "ingredientName": "Lemon"
+      }
+    ],
+    "steps": [
+      "Rinse a chilled old-fashioned glass with the absinthe, add crushed ice and set aside.",
+      "Stir the remaining ingrredients over ice and set it aside.",
+      "Discard the ice and any excess absinthe from the prepared glass, and strain the drink into the glass.",
+      "Add the lemon peel for garnish"
+    ],
+    "name": "Sazerac",
+    "id": "0370ad0a-658b-4fc8-88a9-6e97f7c92f98",
+    "pk": "253",
+    "created": "2021-01-18T21:21:24.8694047Z",
+    "updated": "2021-01-18T21:21:24.8694049Z"
+  },
+  {
+    "description": "",
+    "ingredients": [
+      {
+        "quantity": 1.5,
+        "units": "oz",
+        "ingredientId": "e0d87366-6c46-4f73-b17c-015385bd683b",
+        "ingredientName": "Bourbon"
+      },
+      {
+        "quantity": 1.0,
+        "units": "dash",
+        "ingredientId": "094037a4-783c-48ca-b704-0f2d74fcb1d1",
+        "ingredientName": "Egg White"
+      },
+      {
+        "quantity": 1.0,
+        "units": "oz",
+        "ingredientId": "9cb24e50-7355-4f37-8120-6d2d09da77c0",
+        "ingredientName": "Lemon Juice"
+      },
+      {
+        "quantity": 0.5,
+        "units": "oz",
+        "ingredientId": "f098cb7b-b1fa-4910-8780-32dab3fbfa9c",
+        "ingredientName": "Gomme Syrup"
+      }
+    ],
+    "steps": [
+      "Shake with ice.",
+      "Strain into ice-filled old-fashioned glass to serve \"on the rocks\""
+    ],
+    "name": "Whiskey Sour",
+    "id": "a88d25f4-11bf-4ff2-b07f-5408dc5b58c5",
+    "pk": "642",
+    "created": "2021-01-18T21:21:24.8694241Z",
+    "updated": "2021-01-18T21:21:24.8694242Z"
+  },
+  {
+    "description": "",
+    "ingredients": [
+      {
+        "quantity": 2.0,
+        "units": "oz",
+        "ingredientId": "e0d87366-6c46-4f73-b17c-015385bd683b",
+        "ingredientName": "Bourbon"
+      },
+      {
+        "quantity": 4.0,
+        "units": "Leaves",
+        "ingredientId": "cc8bba4f-218e-40e2-aefa-a6e9cdf5926f",
+        "ingredientName": "Mint"
+      },
+      {
+        "quantity": 1.0,
+        "units": "tsp",
+        "ingredientId": "e53d1bdd-6de1-4c9c-a64f-bb3a2a884a6e",
+        "ingredientName": "Powdered Sugar"
+      },
+      {
+        "quantity": 2.0,
+        "units": "tsp",
+        "ingredientId": "d780e315-f94f-4919-93db-42d8cb564a72",
+        "ingredientName": "Water"
+      }
+    ],
+    "steps": [
+      "In a highball glass gently muddle the mint, sugar and water.",
+      "Fill the glass with cracked ice, add bourbon and stir well until the glass is well frosted.",
+      "Garnish with a mint sprig."
+    ],
+    "name": "Mint Julep",
+    "id": "fe8b9796-da97-40c9-9d72-2ddfb4d0da03",
+    "pk": "934",
+    "created": "2021-01-18T21:21:24.8694332Z",
+    "updated": "2021-01-18T21:21:24.8694333Z"
+  },
+  {
+    "description": "",
+    "ingredients": [
+      {
+        "quantity": 1.0,
+        "units": "oz",
+        "ingredientId": "f8cdd172-d5be-4722-8dbc-1fd5cb6ff427",
+        "ingredientName": "Gin"
+      },
+      {
+        "quantity": 2.0,
+        "units": "oz",
+        "ingredientId": "8108f352-76ea-4c5b-9dfb-024129922f8b",
+        "ingredientName": "Champagne"
+      },
+      {
+        "quantity": 0.5,
+        "units": "oz",
+        "ingredientId": "9cb24e50-7355-4f37-8120-6d2d09da77c0",
+        "ingredientName": "Lemon Juice"
+      },
+      {
+        "quantity": 2.0,
+        "units": "dashes",
+        "ingredientId": "ab3c3b30-d61e-4e0b-ac16-90034bf8e25a",
+        "ingredientName": "Simple Syrup"
+      }
+    ],
+    "steps": [
+      "Combine gin, syrup and lemon juice in a cocktail shaker filled with ice.",
+      "Shake vigorously and strain into an iced champagne glass.",
+      "Top up with Champagne.",
+      "Stir gently"
+    ],
+    "name": "French 75",
+    "id": "549d0739-ed51-4813-81dd-6e2ef9f22a19",
+    "pk": "774",
+    "created": "2021-01-18T21:21:24.8694416Z",
+    "updated": "2021-01-18T21:21:24.8694417Z"
+  },
+  {
+    "description": "",
+    "ingredients": [
+      {
+        "quantity": 1.5,
+        "units": "oz",
+        "ingredientId": "e0d87366-6c46-4f73-b17c-015385bd683b",
+        "ingredientName": "Bourbon"
+      },
+      {
+        "quantity": 1.0,
+        "units": "Piece",
+        "ingredientId": "f5aa0026-00ab-4de5-b037-4313a0562e56",
+        "ingredientName": "Sugar Cube"
+      },
+      {
+        "quantity": 2.0,
+        "units": "dashes",
+        "ingredientId": "b2252aa5-46e2-4c7c-9a2d-6c396a295aad",
+        "ingredientName": "Angostura Bitters"
+      },
+      {
+        "quantity": 2.0,
+        "units": "dashes",
+        "ingredientId": "d780e315-f94f-4919-93db-42d8cb564a72",
+        "ingredientName": "Water"
+      },
+      {
+        "quantity": 1.0,
+        "units": "Peel",
+        "ingredientId": "581f049c-066f-482c-a1b3-0517bfd2c660",
+        "ingredientName": "Orange"
+      },
+      {
+        "quantity": 1.0,
+        "units": "Piece",
+        "ingredientId": "5eb1c994-a286-49d1-853b-f1f7f0896e49",
+        "ingredientName": "Maraschino Cherry"
+      }
+    ],
+    "steps": [
+      "Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water",
+      "Muddle until dissolved.",
+      "Fill the glass with ice cubes and add whiskey.",
+      "Garnish with orange slice and a cherry."
+    ],
+    "name": "Old Fashioned (Bourbon)",
+    "id": "f2dc4343-180a-4eb2-9f18-067a01ca3be9",
+    "pk": "481",
+    "created": "2021-01-18T21:21:24.869449Z",
+    "updated": "2021-01-18T21:21:24.8694491Z"
+  },
+  {
+    "description": "",
+    "ingredients": [
+      {
+        "quantity": 1.5,
+        "units": "oz",
+        "ingredientId": "19c72926-54d3-4780-b8a1-5921a8d4e169",
+        "ingredientName": "Rye"
+      },
+      {
+        "quantity": 1.0,
+        "units": "Piece",
+        "ingredientId": "f5aa0026-00ab-4de5-b037-4313a0562e56",
+        "ingredientName": "Sugar Cube"
+      },
+      {
+        "quantity": 2.0,
+        "units": "dashes",
+        "ingredientId": "b2252aa5-46e2-4c7c-9a2d-6c396a295aad",
+        "ingredientName": "Angostura Bitters"
+      },
+      {
+        "quantity": 2.0,
+        "units": "dashes",
+        "ingredientId": "d780e315-f94f-4919-93db-42d8cb564a72",
+        "ingredientName": "Water"
+      },
+      {
+        "quantity": 1.0,
+        "units": "Peel",
+        "ingredientId": "581f049c-066f-482c-a1b3-0517bfd2c660",
+        "ingredientName": "Orange"
+      },
+      {
+        "quantity": 1.0,
+        "units": "Piece",
+        "ingredientId": "5eb1c994-a286-49d1-853b-f1f7f0896e49",
+        "ingredientName": "Maraschino Cherry"
+      }
+    ],
+    "steps": [
+      "Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water",
+      "Muddle until dissolved.",
+      "Fill the glass with ice cubes and add whiskey.",
+      "Garnish with orange slice and a cherry."
+    ],
+    "name": "Old Fashioned (Rye)",
+    "id": "5f253685-81b1-4fa7-a05e-1cbada195197",
+    "pk": "481",
+    "created": "2021-01-18T21:21:24.8694577Z",
+    "updated": "2021-01-18T21:21:24.8694578Z"
+  },
+  {
+    "description": "",
+    "ingredients": [
+      {
+        "quantity": 3.0,
+        "units": "oz",
+        "ingredientId": "f8cdd172-d5be-4722-8dbc-1fd5cb6ff427",
+        "ingredientName": "Gin"
+      },
+      {
+        "quantity": 0.5,
+        "units": "oz",
+        "ingredientId": "3d71cd78-a316-47fb-850b-263d48dd6691",
+        "ingredientName": "Dry Vermouth"
+      },
+      {
+        "quantity": 1.0,
+        "units": "Twist",
+        "ingredientId": "891df45f-4334-4098-8071-c652eb38e8a6",
+        "ingredientName": "Lemon"
+      },
+      {
+        "quantity": 1.0,
+        "units": "Piece",
+        "ingredientId": "ce3ed002-ee6f-4731-a071-ac77710ba1a7",
+        "ingredientName": "Olive"
+      }
+    ],
+    "steps": [
+      "Pour all ingredients into mixing glass with ice cubes.",
+      "Stir well.",
+      "Strain into chilled cocktail glass. Squeeze oil from lemon peel onto the drink or garnish with olives."
+    ],
+    "name": "Martini",
+    "id": "608eacdb-4e47-43b9-94a4-3eb62b32e4ba",
+    "pk": "54",
+    "created": "2021-01-18T21:21:24.8694727Z",
+    "updated": "2021-01-18T21:21:24.8694728Z"
+  },
+  {
+    "description": "",
+    "ingredients": [
+      {
+        "quantity": 1.5,
+        "units": "oz",
+        "ingredientId": "8019c543-6925-4106-b64c-03ad1a2e70ce",
+        "ingredientName": "Tequila"
+      },
+      {
+        "quantity": 3.0,
+        "units": "oz",
+        "ingredientId": "13f05ff2-a942-43fa-a3f5-5456b134ebd7",
+        "ingredientName": "Orange Juice"
+      },
+      {
+        "quantity": 0.5,
+        "units": "oz",
+        "ingredientId": "a936bfd9-4673-4bca-b799-5fc1df9779ea",
+        "ingredientName": "Grenadine Syrup"
+      },
+      {
+        "quantity": 1.0,
+        "units": "slice",
+        "ingredientId": "581f049c-066f-482c-a1b3-0517bfd2c660",
+        "ingredientName": "Orange"
+      },
+      {
+        "quantity": 1.0,
+        "units": "Piece",
+        "ingredientId": "5eb1c994-a286-49d1-853b-f1f7f0896e49",
+        "ingredientName": "Maraschino Cherry"
+      }
+    ],
+    "steps": [
+      "Pour the tequila dnd orange juice into glass over ice.",
+      "Add the grenadine, which will sink to the bottom.",
+      "Do not stir.",
+      "Garnish and serve"
+    ],
+    "name": "Tequila Sunrise",
+    "id": "3e164a63-b728-4152-bec1-ec478181da36",
+    "pk": "341",
+    "created": "2021-01-18T21:21:24.8694807Z",
+    "updated": "2021-01-18T21:21:24.8694808Z"
+  },
+  {
+    "description": "",
+    "ingredients": [
+      {
+        "quantity": 1.5,
+        "units": "oz",
+        "ingredientId": "f8cdd172-d5be-4722-8dbc-1fd5cb6ff427",
+        "ingredientName": "Gin"
+      },
+      {
+        "quantity": 1.0,
+        "units": "oz",
+        "ingredientId": "9cb24e50-7355-4f37-8120-6d2d09da77c0",
+        "ingredientName": "Lemon Juice"
+      },
+      {
+        "quantity": 0.5,
+        "units": "oz",
+        "ingredientId": "ab3c3b30-d61e-4e0b-ac16-90034bf8e25a",
+        "ingredientName": "Simple Syrup"
+      },
+      {
+        "quantity": 2.0,
+        "units": "oz",
+        "ingredientId": "15abec88-fbc6-4fa8-b09b-e50fd38f5988",
+        "ingredientName": "Soda Water"
+      },
+      {
+        "quantity": 1.0,
+        "units": "slice",
+        "ingredientId": "891df45f-4334-4098-8071-c652eb38e8a6",
+        "ingredientName": "Lemon"
+      },
+      {
+        "quantity": 1.0,
+        "units": "Piece",
+        "ingredientId": "5eb1c994-a286-49d1-853b-f1f7f0896e49",
+        "ingredientName": "Maraschino Cherry"
+      }
+    ],
+    "steps": [
+      "Mix the gin, lemon juice and sugar syrup in a tall glass with ice.",
+      "Top up with soda water.",
+      "Garnish and serve"
+    ],
+    "name": "Tom Collins",
+    "id": "873b4d07-bc34-4c74-9cae-cee1724f33ea",
+    "pk": "560",
+    "created": "2021-01-18T21:21:24.8695055Z",
+    "updated": "2021-01-18T21:21:24.8695056Z"
+  }
+]

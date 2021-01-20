@@ -13,35 +13,44 @@ namespace BarLib
     public class BruteForceLibraryGenerator : ILibraryGenerator
     {
         private readonly IStorageContext<Drink> drinkContext;
+        private readonly IStorageContext<Ingredient> ingredientContext;
 
-        public BruteForceLibraryGenerator(IStorageContext<Drink> drinkContext)
+        public BruteForceLibraryGenerator(
+            IStorageContext<Drink> drinkContext,
+            IStorageContext<Ingredient> ingredientContext)
         {
             this.drinkContext = drinkContext;
+            this.ingredientContext = ingredientContext;
         }
 
         public async Task<List<Drink>> BuildAsync(UserBar bar)
         {
-            var barContentsKeys = bar.AvailableIngredients.Select(x=>x.Id).ToList();
+            var barContentsKeys = bar.AvailableIngredients.Select(x => x.Id).ToList();
+            var ingredientsById = (await ingredientContext.GetAsync()).ToDictionary(x=>x.Id);
 
             // select * from d where d.ingredients.id
             var allDrinks = await drinkContext.GetAsync();
             var allowed = new List<Drink>();
             foreach (var d in allDrinks)
             {
-                // bool isAllowed = true;
-                var isAllowed = !d.Ingredients.Select(x=>x.IngredientId).Except(barContentsKeys).Any();
+                var missing = false;
+                foreach (var i in d.Ingredients)
+                {   
+                    if(ingredientsById.TryGetValue(i.IngredientId, out var ingredient) &&
+                    ingredient.IngredientType != IngredientType.Garnish &&
+                    barContentsKeys.Contains(i.IngredientId)== false)
+                    {
+                        missing = true;
+                        break;
+                    }
+                    // if (barContentsKeys.Contains(i.IngredientId) == false)
+                    // {
+                    //     missing = true;
+                    //     break;
+                    // }
+                }
 
-                // foreach (var s in d.Ingredients)
-                // {
-                //     if (barContentsKeys.Contains(s.IngredientId) == false)
-                //     {
-                //         isAllowed = false;
-                //         break;
-                //     }
-                // }
-
-                if (isAllowed)
-                {
+                if(missing==false){
                     allowed.Add(d);
                 }
             }
@@ -67,7 +76,7 @@ namespace BarLib
     //     {
     //         var allowed = (await drinkContext.GetAsync())
     //             .Where(d=>d.GetIngredients().Except(bar.AvailableIngredients).Any());
-            
+
     //         return allowed.ToList();
     //     }
     // }

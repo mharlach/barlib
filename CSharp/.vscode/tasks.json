@@ -25,7 +25,7 @@
             "type": "process",
             "problemMatcher": "$msCompile",
             "options": {
-                "cwd": "${workspaceFolder}/BarLib.ServiceHost"
+                "cwd": "${workspaceFolder}/${input:project}"
             }
         },
         {
@@ -44,7 +44,7 @@
             },
             "problemMatcher": "$msCompile",
             "options": {
-                "cwd": "${workspaceFolder}/BarLib.ServiceHost"
+                "cwd": "${workspaceFolder}/${input:project}"
             }
         },
         {
@@ -60,7 +60,7 @@
             "type": "process",
             "problemMatcher": "$msCompile",
             "options": {
-                "cwd": "${workspaceFolder}/BarLib.ServiceHost"
+                "cwd": "${workspaceFolder}/${input:project}"
             }
         },
         {
@@ -89,6 +89,15 @@
             "command": "host start",
             "isBackground": true,
             "problemMatcher": "$func-dotnet-watch"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "project",
+            "options": ["BarLib.ConsoleApp","BarLib.ServiceHost"],
+            "default": "BarLib.ConsoleApp",
+            "description": "Select project to build",
+            "type": "pickString"
         }
     ]
 }

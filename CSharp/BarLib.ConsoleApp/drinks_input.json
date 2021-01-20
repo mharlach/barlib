@@ -1,0 +1,161 @@
+[
+    {
+        "Name":"Negroni",
+        "Ingredients":[
+            {"Name":"Gin", "Quantity":1, "Units":"oz"},
+            {"Name":"Campari", "Quantity":1,"Units":"oz"},
+            {"Name":"Sweet Vermouth", "Quantity":1,"Units":"oz"},
+            {"Name":"Orange", "Quantity":1, "Units":"Peel"}
+        ],
+        "Steps":["Stir into glass over ice, garnish and serve"]
+    },
+    {
+        "Name":"Manhattan",
+        "Ingredients":[
+            {"Name":"Whiskey", "Quantity":2, "Units":"oz"},
+            {"Name":"Sweet Vermouth", "Quantity":0.75,"Units":"oz"},
+            {"Name":"Angostura Bitters", "Quantity":1, "Unit":"dash"},
+            {"Name":"Maraschino Cherry", "Quantity":1, "Unit":"piece"}
+        ],
+        "Steps":["Stirred over ice, strained into a chilled glass, garnished, and served straight up."]
+    },
+    {
+        "Name":"Daquiri",
+        "Ingredients":[
+            {"Name":"White Rum","Quantity":1.5, "Units":"oz"},
+            {"Name":"Lime Juice", "Quantity":1, "Units":"oz"},
+            {"Name":"Simple Syrup","Quantity":0.5, "Units":"oz"},
+            {"Name":"Lime","Quantity":1,"Units":"wedge"}
+        ],
+        "Steps":["Pour all ingredients into a shaker with ice","Shake well","Strain into a chilled cocktail glass"]
+    },
+    {
+        "Name":"Sidecar",
+        "Ingredients":[
+            {"Name":"Cognac", "Quantity":2,"Units":"oz"},
+            {"Name":"Lemon Juice","Quantity":0.75,"Units":"oz"},
+            {"Name":"Triple Sec", "Quantity":0.75,"Units":"oz"}
+        ],
+        "Steps":["Pour all ingredients into a shaker with ice","Shake well","Strain into a chilled cocktail glass"]
+    },
+    {
+        "Name":"Margarita",
+        "Ingredients":[
+            {"Name":"Tequila", "Quantity":2,"Units":"oz"},
+            {"Name":"Cointreau","Quantity":1,"Units":"oz"},
+            {"Name":"Lime Juice","Quantity":1,"Units":"oz"},
+            {"Name":"Lime","Quantity":1,"Units":"wedge"},
+            {"Name":"Salt", "Quantity":1, "Units":"N/A"}
+        ],
+        "Steps":["Rub the rim of the glass with the lime slice to make the salt stick.","Shake the other ingredients with ice.","Carefully pour into the glass (Taking care not to dislodge any salt).","Garnish and serve over ice"]
+    },
+    {
+        "Name":"Mojito",
+        "Ingredients":[
+            {"Name":"White Rum", "Quantity":1.5,"Units":"oz"},
+            {"Name":"Lime Juice", "Quantity":1, "Units":"oz"},
+            {"Name":"Sugar", "Quantity":2, "Units": "tsp"},
+            {"Name":"Mint", "Quantity":6, "Units":"Leaves"},
+            {"Name":"Soda Water","Quantity":6, "Units":"oz"}
+        ],
+        "Steps":["Muddle mint leaves with sugar and lime juice.","Add rum, ice and top with soda water", "Garnish with extra mint"]
+    },
+    {
+        "Name":"Sazerac",
+        "Ingredients":[
+            {"Name":"Rye","Quantity":1.5,"Units":"oz"},
+            {"Name":"Absinthe", "Quantity":0.25,"Units":"oz"},
+            {"Name":"Sugar Cube","Quantity":1,"Units":"Piece"},
+            {"Name":"Peychaud's Bitters","Quantity":3,"Units":"dashes"},
+            {"Name":"Lemon","Quantity":1,"Units":"Peel"}
+        ],
+        "Steps":["Rinse a chilled old-fashioned glass with the absinthe, add crushed ice and set aside.","Stir the remaining ingrredients over ice and set it aside.","Discard the ice and any excess absinthe from the prepared glass, and strain the drink into the glass.","Add the lemon peel for garnish"]
+    },
+    {
+        "Name":"Whiskey Sour",
+        "Ingredients":[
+            {"Name":"Bourbon","Quantity":1.5,"Units":"oz"},
+            {"Name":"Egg White","Quantity":1,"Units":"dash"},
+            {"Name":"Lemon Juice","Quantity":1, "Units":"oz"},
+            {"Name":"Gomme Syrup","Quantity":0.5,"Units":"oz"}
+        ] ,
+        "Steps":["Shake with ice.","Strain into ice-filled old-fashioned glass to serve \"on the rocks\""]
+    },
+    {
+        "Name":"Mint Julep",
+        "Ingredients":[
+            {"Name":"Bourbon", "Quantity":2, "Units":"oz"},
+            {"Name":"Mint","Quantity":4,"Units":"Leaves"},
+            {"Name":"Powdered Sugar","Quantity":1,"Units":"tsp"},
+            {"Name":"Water", "Quantity":2, "Units":"tsp"}
+        ],
+        "Steps":["In a highball glass gently muddle the mint, sugar and water.","Fill the glass with cracked ice, add bourbon and stir well until the glass is well frosted.","Garnish with a mint sprig."]
+    },
+    {
+        "Name":"French 75",
+        "Ingredients":[
+            {"Name":"Gin","Quantity":1, "Units":"oz"},
+            {"Name":"Champagne", "Quantity":2, "Units":"oz"},
+            {"Name":"Lemon Juice", "Quantity":0.5,"Units":"oz"},
+            {"Name":"Simple Syrup","Quantity":2, "Units":"dashes"}
+        ],
+        "Steps":["Combine gin, syrup and lemon juice in a cocktail shaker filled with ice.","Shake vigorously and strain into an iced champagne glass.","Top up with Champagne.","Stir gently"]
+    },
+    {
+        "Name":"Old Fashioned (Bourbon)",
+        "Ingredients":[
+            {"Name":"Bourbon", "Quantity":1.5,"Units":"oz"},
+            {"Name":"Sugar Cube", "Quantity":1,"Units":"Piece"},
+            {"Name":"Angostura Bitters","Quantity":2,"Units":"dashes"},
+            {"Name":"Water","Quantity":2,"Units":"dashes"},
+            {"Name":"Orange","Quantity":1, "Units":"Peel"},
+            {"Name":"Maraschino Cherry","Quantity":1,"Units":"Piece"}
+        ],
+        "Steps":["Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water", "Muddle until dissolved.", "Fill the glass with ice cubes and add whiskey.","Garnish with orange slice and a cherry."]
+    },
+    {
+        "Name":"Old Fashioned (Rye)",
+        "Ingredients":[
+            {"Name":"Rye", "Quantity":1.5,"Units":"oz"},
+            {"Name":"Sugar Cube", "Quantity":1,"Units":"Piece"},
+            {"Name":"Angostura Bitters","Quantity":2,"Units":"dashes"},
+            {"Name":"Water","Quantity":2,"Units":"dashes"},
+            {"Name":"Orange","Quantity":1, "Units":"Peel"},
+            {"Name":"Maraschino Cherry","Quantity":1,"Units":"Piece"}
+        ],
+        "Steps":["Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water", "Muddle until dissolved.", "Fill the glass with ice cubes and add whiskey.","Garnish with orange slice and a cherry."]
+    },
+    {
+        "Name":"Martini",
+        "Ingredients":[
+            {"Name":"Gin","Quantity":3,"Units":"oz"},
+            {"Name":"Dry Vermouth", "Quantity":0.5, "Units":"oz"},
+            {"Name":"Lemon","Quantity":1,"Units":"Twist"},
+            {"Name":"Olive", "Quantity":1,"Units":"Piece"}
+        ],
+        "Steps":["Pour all ingredients into mixing glass with ice cubes.","Stir well.", "Strain into chilled cocktail glass. Squeeze oil from lemon peel onto the drink or garnish with olives."]
+    },
+    {
+        "Name":"Tequila Sunrise",
+        "Ingredients":[
+            {"Name":"Tequila", "Quantity":1.5, "Units":"oz"},
+            {"Name":"Orange Juice", "Quantity":3, "Units":"oz"},
+            {"Name":"Grenadine Syrup","Quantity":0.5, "Units":"oz"},
+            {"Name":"Orange","Quantity":1, "Units":"slice"},
+            {"Name":"Maraschino Cherry","Quantity":1,"Units":"Piece"}
+        ],
+        "Steps":["Pour the tequila dnd orange juice into glass over ice.", "Add the grenadine, which will sink to the bottom.","Do not stir.","Garnish and serve"]
+    },
+    {
+        "Name":"Tom Collins", 
+        "Ingredients":[
+            {"Name":"Gin","Quantity":1.5,"Units":"oz"},
+            {"Name":"Lemon Juice","Quantity":1,"Units":"oz"},
+            {"Name":"Simple Syrup","Quantity":0.5,"Units":"oz"},
+            {"Name":"Soda Water","Quantity":2,"Units":"oz"},
+            {"Name":"Lemon","Quantity":1,"Units":"slice"},
+            {"Name":"Maraschino Cherry","Quantity":1,"Units":"Piece"}
+        ],
+        "Steps":["Mix the gin, lemon juice and sugar syrup in a tall glass with ice.","Top up with soda water.","Garnish and serve"]
+    }
+]
