@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Azure.Cosmos;
 using Newtonsoft.Json;
@@ -17,13 +18,25 @@ namespace BarLib.ConsoleApp
         private static readonly string ingredientsData = "ingredients.json";
         private static readonly string drinksData = "drinks.json";
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            // var i = new IngredientModelHelper().Build();
-            // ImportIngredientList();
-            // ImportDrinksList();
+            var ingredientContext = new IngredientStorageContext();
+            var drinkContext = new DrinkStorageContent();
 
-            Generate();
+            var uploader = new Uploader("http://localhost:7071/api/");
+            // var ingredients = await ingredientContext.GetAsync();
+            // foreach (var i in ingredients)
+            // {
+            //     uploader.Put($"ingredients/{i.Id}", i);
+            //     Thread.Sleep(2000);
+            // }
+
+            var drinks = await drinkContext.GetAsync();
+            foreach (var d in drinks)
+            {
+                uploader.Put($"drinks/{d.Id}", d);
+                Thread.Sleep(2000);
+            }
         }
 
         public static void Generate()
@@ -35,7 +48,8 @@ namespace BarLib.ConsoleApp
 
             var drinks = drinksListTask.Result;
 
-            foreach(var d in drinks){
+            foreach (var d in drinks)
+            {
                 Console.WriteLine($"{d.Name}");
             }
         }
@@ -175,7 +189,7 @@ namespace BarLib.ConsoleApp
 
     public class IngredientStorageContext : IStorageContext<Ingredient>
     {
-         
+
         public Task DeleteAsync(string id)
         {
             throw new NotImplementedException();
@@ -183,9 +197,9 @@ namespace BarLib.ConsoleApp
 
         public async Task<IList<Ingredient>> GetAsync()
         {
-           var data = File.ReadAllText("ingredients.json");
-           var ingredients = JsonConvert.DeserializeObject<List<Ingredient>>(data);
-           return ingredients;
+            var data = File.ReadAllText("ingredients.json");
+            var ingredients = JsonConvert.DeserializeObject<List<Ingredient>>(data);
+            return ingredients;
         }
 
         public Task<Ingredient> GetAsync(string id)

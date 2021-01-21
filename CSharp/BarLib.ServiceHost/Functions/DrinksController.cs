@@ -47,6 +47,7 @@ namespace BarLib.ServiceHost.Functions
             {
                 "GET" => await GetAsync(id),
                 "DELETE" => await DeleteAsync(id),
+                "PUT" => await UpsertAsync(req, id),
                 _ => new BadRequestResult(),
             };
 

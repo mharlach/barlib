@@ -12,7 +12,7 @@ namespace BarLib.ServiceHost
         private ILogger log;
 
         public ModelBaseStorageContext(ILoggerFactory factory, IConfiguration config)
-            : base(factory, config, "user")
+            : base(factory, config, "models")
         {
             this.log = factory.CreateLogger<ModelBaseStorageContext<T>>();
         }

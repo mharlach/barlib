@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <ItemGroup>
-    <ProjectReference Include="..\BarLib\BarLib.csproj" />
+    <ProjectReference Include="..\BarLib\BarLib.csproj"/>
   </ItemGroup>
-
+  <ItemGroup>
+    <PackageReference Include="RestSharp" Version="106.11.7"/>
+  </ItemGroup>
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-
 </Project>
