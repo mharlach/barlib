@@ -11,13 +11,13 @@ public class Uploader
         this.url = url;
     }
 
-    public void Put(string path, ModelBase item) => Execute(Method.PUT, path, item);
+    public void Put(string path, StorageObjectBase item) => Execute(Method.PUT, path, item);
 
-    public void Post(string path, ModelBase item) => Execute(Method.POST, path, item);
+    public void Post(string path, StorageObjectBase item) => Execute(Method.POST, path, item);
 
-    private void Execute(Method method, string path, ModelBase item)
+    private void Execute(Method method, string path, StorageObjectBase item)
     {
-        Console.Write($"[{method}] -- {item.Name}");
+        Console.Write($"[{method}] -- {item.Id}");
         var client = new RestClient(url);
         var request = new RestRequest
         {

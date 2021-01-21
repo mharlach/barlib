@@ -20,23 +20,12 @@ namespace BarLib.ConsoleApp
 
         static async Task Main(string[] args)
         {
-            var ingredientContext = new IngredientStorageContext();
-            var drinkContext = new DrinkStorageContent();
+            var userBar = LoadUserBar("mybar.txt");
+            userBar.Id = Guid.NewGuid().ToString();
+            userBar.UserId = Guid.NewGuid().ToString();
 
             var uploader = new Uploader("http://localhost:7071/api/");
-            // var ingredients = await ingredientContext.GetAsync();
-            // foreach (var i in ingredients)
-            // {
-            //     uploader.Put($"ingredients/{i.Id}", i);
-            //     Thread.Sleep(2000);
-            // }
-
-            var drinks = await drinkContext.GetAsync();
-            foreach (var d in drinks)
-            {
-                uploader.Put($"drinks/{d.Id}", d);
-                Thread.Sleep(2000);
-            }
+            uploader.Put($"users/{userBar.UserId}/bar", userBar);
         }
 
         public static void Generate()

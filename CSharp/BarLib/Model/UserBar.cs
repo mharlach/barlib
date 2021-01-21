@@ -22,7 +22,7 @@ namespace BarLib
             HashCode = base.GetHashCode();
             foreach (var i in AvailableIngredients)
             {
-                HashCode = HashCode ^ i.GetHashCode();
+                HashCode = HashCode ^ i.Id.GetHashCode();
             }
 
             return HashCode;
