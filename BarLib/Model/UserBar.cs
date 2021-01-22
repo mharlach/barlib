@@ -11,6 +11,8 @@ namespace BarLib
         [JsonProperty("availableIngredients")]
         public List<ItemPair> AvailableIngredients { get; set; } = new List<ItemPair>();
 
+        public override string ObjectType { get; set; } = "userBar";
+
         public void AddIngredient(Ingredient i) => AvailableIngredients.Add(new ItemPair
         {
             Id = i.Id,

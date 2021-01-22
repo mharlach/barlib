@@ -20,6 +20,9 @@ namespace BarLib
         [JsonProperty("updated")]
         public DateTime Updated { get; set; } = DateTime.UtcNow;
 
+        [JsonProperty("type")]
+        public abstract string ObjectType {get;set;}
+
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext) => new List<ValidationResult>();
 
     }

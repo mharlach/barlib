@@ -32,6 +32,8 @@ namespace BarLib
         [JsonConverter(typeof(StringEnumConverter))]
         [JsonProperty("ingredientType")]
         public IngredientType IngredientType { get; set; }
+
+        public override string ObjectType { get; set; } = "ingredient";
     }
 
 }

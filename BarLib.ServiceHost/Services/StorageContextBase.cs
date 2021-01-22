@@ -28,7 +28,10 @@ namespace BarLib.ServiceHost
 
         public async Task<IList<T>> GetAsync()
         {
-            var query = container.GetItemQueryIterator<T>("SELECT * FROM c");
+            var def = new QueryDefinition("SELECT * FROM c where c.type=@Type")
+                .WithParameter("@Type", Activator.CreateInstance<T>().ObjectType);
+
+            var query = container.GetItemQueryIterator<T>(def);
             var items = new List<T>();
 
             while (query.HasMoreResults)

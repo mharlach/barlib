@@ -23,6 +23,9 @@ namespace BarLib
         [JsonProperty("steps")]
         public List<string> Steps { get; set; } = new List<string>();
 
+        public override string ObjectType { get; set; } = "drink";
+
+
         public void AddStep(string IngredientId, float quantity, string units) => Ingredients.Add(new DrinkIngredient(IngredientId, quantity, units));
 
         public IEnumerable<string> GetIngredients() => Ingredients.Select(x => x.IngredientId);

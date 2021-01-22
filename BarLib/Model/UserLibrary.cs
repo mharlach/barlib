@@ -11,6 +11,8 @@ namespace BarLib
         [JsonProperty("drinks")]
         public List<ItemPair> Drinks { get; set; } = new List<ItemPair>();
 
+        public override string ObjectType { get; set; } = "userLibrary";
+
         public override int GetHashCode()
         {
             HashCode = base.GetHashCode();
