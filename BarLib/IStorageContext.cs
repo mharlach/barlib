@@ -18,7 +18,7 @@ namespace BarLib
         
         Task<IList<T>> GetAsync(string userId);
         Task<T?> GetAsync(string userId, string id);
-        Task<T> UpserAsync(T item);
+        Task<T> UpsertAsync(T item);
         Task DeleteAsync(string id);
 
     }

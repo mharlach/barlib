@@ -13,9 +13,9 @@ namespace BarLib.ServiceHost.Functions
     public class UserLibraryController
     {
         private readonly ILogger log;
-        private readonly IStorageContext<UserLibrary> context;
+        private readonly ILibraryStorageContext context;
 
-        public UserLibraryController(ILogger log, IStorageContext<UserLibrary> context)
+        public UserLibraryController(ILogger log, ILibraryStorageContext context)
         {
             this.log = log;
             this.context = context;
@@ -23,26 +23,25 @@ namespace BarLib.ServiceHost.Functions
 
         [FunctionName("UserLibrary")]
         public async Task<IActionResult> RunAsync(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post","put","delete", Route = "users/{userId}/library")] HttpRequest req,
-            string userId)
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post","put","delete", Route = "users/{userId}/bars/{barId}/library")] HttpRequest req,
+            string userId, string barId)
         {
             IActionResult response = req.Method.ToUpper() switch
             {
-                "GET" => await GetAsync(userId),
-                "POST" => await UpsertAsync(req),
-                "PUT" => await UpsertAsync(req),
+                "GET" => await GetAsync(userId, barId),
+                "POST" => await UpsertAsync(userId, barId, req),
+                "PUT" => await UpsertAsync(userId, barId, req),
                 "DELETE" => await DeleteAsync(userId),
                 _ => new BadRequestResult(),
             };
 
             return response;
         }
-
         
 
-        private async Task<IActionResult> GetAsync(string id)
+        private async Task<IActionResult> GetAsync(string userId, string barId)
         {
-            var item = await context.GetAsync(id);
+            var item = await context.GetAsync(userId, barId);
             if (item == null)
             {
                 return new NotFoundResult();
@@ -53,10 +52,12 @@ namespace BarLib.ServiceHost.Functions
             }
         }
 
-        private async Task<IActionResult> UpsertAsync(HttpRequest req)
+        private async Task<IActionResult> UpsertAsync(string userId, string barId, HttpRequest req)
         {
             var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var bar = JsonConvert.DeserializeObject<UserLibrary>(requestBody);
+            bar.UserId = userId;
+            bar.BarId = barId;
             bar.HashCode = bar.GetHashCode();
 
             bar = await context.UpsertAsync(bar);

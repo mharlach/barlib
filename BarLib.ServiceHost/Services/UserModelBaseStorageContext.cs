@@ -8,32 +8,32 @@ using System;
 
 namespace BarLib.ServiceHost
 {
-    public class UserModelBaseStorageContext<T> : StorageContextBase<T>, IStorageContext<T> where T : UserModelBase
-    {
-        private ILogger log;
+    // public class UserModelBaseStorageContext<T> : StorageContextBase<T>, IStorageContext<T> where T : UserModelBase
+    // {
+    //     private ILogger log;
 
-        public UserModelBaseStorageContext(ILoggerFactory factory, IConfiguration config)
-        : base(factory, config, "models")
-        {
-            this.log = factory.CreateLogger<UserModelBaseStorageContext<T>>();
-        }
+    //     public UserModelBaseStorageContext(ILoggerFactory factory, IConfiguration config)
+    //     : base(factory, config, "models")
+    //     {
+    //         this.log = factory.CreateLogger<UserModelBaseStorageContext<T>>();
+    //     }
 
-        public async Task<T?> GetAsync(string id)
-        {
-            var queryDef = new QueryDefinition("SELECT * FROM c WHERE c.userId=@userId").WithParameter("@userId", id);
-            var response = await GetAsync(queryDef);
-            return response.FirstOrDefault();
-        }
-    }
+    //     public async Task<T?> GetAsync(string id)
+    //     {
+    //         var queryDef = new QueryDefinition("SELECT * FROM c WHERE c.userId=@userId").WithParameter("@userId", id);
+    //         var response = await GetAsync(queryDef);
+    //         return response.FirstOrDefault();
+    //     }
+    // }
 
-    public class UserModelBaseStorageContext2<T> : IUserStorageContext<T> where T : UserModelBase
+    public class UserModelBaseStorageContext<T> : IUserStorageContext<T> where T : UserModelBase
     {
         private readonly Container container;
         private ILogger log;
 
-        public UserModelBaseStorageContext2(ILoggerFactory factory, IConfiguration configuration)
+        public UserModelBaseStorageContext(ILoggerFactory factory, IConfiguration configuration)
         {
-            this.log = factory.CreateLogger<UserModelBaseStorageContext2<T>>();
+            this.log = factory.CreateLogger<UserModelBaseStorageContext<T>>();
             var connectionString = configuration.GetValue<string>("Cosmos:ConnectionString");
 
             var client = new CosmosClient(connectionString);
@@ -77,7 +77,7 @@ namespace BarLib.ServiceHost
             return items.FirstOrDefault();
         }
 
-        public async Task<T> UpserAsync(T item)
+        public async Task<T> UpsertAsync(T item)
         {
             item.PartitionKey = PartitionKey(item.Id).ToString();
             var response = await container.UpsertItemAsync<T>(item, new Microsoft.Azure.Cosmos.PartitionKey(item.PartitionKey));
@@ -85,9 +85,10 @@ namespace BarLib.ServiceHost
             return response.Resource;
         }
 
-        public Task DeleteAsync(string id)
+        public async Task DeleteAsync(string id)
         {
-            throw new System.NotImplementedException();
+            var pk = PartitionKey(id);
+            await container.DeleteItemAsync<T>(id, new Microsoft.Azure.Cosmos.PartitionKey(pk));
         }
 
         public int PartitionKey(string Id) => System.Math.Abs(Id.GetHashCode() % 1000);

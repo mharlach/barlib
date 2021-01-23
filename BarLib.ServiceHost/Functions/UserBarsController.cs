@@ -13,22 +13,22 @@ namespace BarLib.ServiceHost.Functions
     public class UserBarsController
     {
         public readonly ILogger log;
-        public readonly IStorageContext<UserBar> context;
+        public readonly IUserStorageContext<UserBar> context;
 
-        public UserBarsController(ILogger<UserBarsController> log, IStorageContext<UserBar> context)
+        public UserBarsController(ILogger<UserBarsController> log, IUserStorageContext<UserBar> context)
         {
             this.log = log;
             this.context = context;
         }
 
-        [FunctionName("UserBars")]
+        [FunctionName("UserBars_GetPost")]
         public async Task<IActionResult> RunAsync(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "users/{userId}/bars")] HttpRequest req,
             string userId)
         {
             IActionResult response = req.Method.ToUpper() switch
             {
-                "GET" => await GetAsync(userId),
+                "GET" => await GetAsync(userId, null),
                 "POST" => await UpsertAsync(req, userId, null),
                 // "PUT" => await UpsertAsync(req, userId),
                 "DELETE" => await DeleteAsync(userId),
@@ -45,7 +45,7 @@ namespace BarLib.ServiceHost.Functions
         {
             IActionResult response = req.Method.ToUpper() switch
             {
-                "GET" => await GetAsync(userId),
+                "GET" => await GetAsync(userId, barId),
                 // "POST" => await UpsertAsync(req, userId, null),
                 "PUT" => await UpsertAsync(req, userId, barId),
                 "DELETE" => await DeleteAsync(userId),
@@ -55,16 +55,24 @@ namespace BarLib.ServiceHost.Functions
             return response;
         }
 
-        private async Task<IActionResult> GetAsync(string id)
+        private async Task<IActionResult> GetAsync(string userId, string? id)
         {
-            var item = await context.GetAsync(id);
-            if (item == null)
+            if (string.IsNullOrWhiteSpace(id))
             {
-                return new NotFoundResult();
+                var bars = await context.GetAsync(userId);
+                return new OkObjectResult(bars);
             }
             else
             {
-                return new OkObjectResult(item);
+                var bar = await context.GetAsync(userId, id);
+                if (bar == null)
+                {
+                    return new NotFoundResult();
+                }
+                else
+                {
+                    return new OkObjectResult(bar);
+                }
             }
         }
 

@@ -9,13 +9,14 @@ namespace BarLib.ServiceHost
 {
     public class Startup : FunctionsStartup
     {
-        public override void Configure(IFunctionsHostBuilder builder){
-            
-            builder.Services.AddSingleton<IStorageContext<Ingredient>,ModelBaseStorageContext<Ingredient>>();
-            builder.Services.AddSingleton<IStorageContext<Drink>,ModelBaseStorageContext<Drink>>();
-            builder.Services.AddSingleton<IStorageContext<UserBar>,UserModelBaseStorageContext<UserBar>>();
-            builder.Services.AddSingleton<IStorageContext<UserLibrary>,UserModelBaseStorageContext<UserLibrary>>();
-            builder.Services.AddSingleton<ILibraryGenerator,BruteForceLibraryGenerator>();
+        public override void Configure(IFunctionsHostBuilder builder)
+        {
+
+            builder.Services.AddSingleton<IStorageContext<Ingredient>, ModelBaseStorageContext<Ingredient>>();
+            builder.Services.AddSingleton<IStorageContext<Drink>, ModelBaseStorageContext<Drink>>();
+            builder.Services.AddSingleton<IUserStorageContext<UserBar>, UserModelBaseStorageContext<UserBar>>();
+            builder.Services.AddSingleton<ILibraryStorageContext, LibraryStorageContext>();
+            builder.Services.AddSingleton<ILibraryGenerator, BruteForceLibraryGenerator>();
         }
 
         public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
