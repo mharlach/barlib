@@ -15,7 +15,7 @@ namespace BarLib.ServiceHost.Functions
         public readonly ILogger log;
         public readonly IStorageContext<UserBar> context;
 
-        public UserBarsController(ILogger log, IStorageContext<UserBar> context)
+        public UserBarsController(ILogger<UserBarsController> log, IStorageContext<UserBar> context)
         {
             this.log = log;
             this.context = context;
@@ -23,14 +23,31 @@ namespace BarLib.ServiceHost.Functions
 
         [FunctionName("UserBars")]
         public async Task<IActionResult> RunAsync(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post","put","delete", Route = "users/{userId}/bar")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "users/{userId}/bars")] HttpRequest req,
             string userId)
         {
             IActionResult response = req.Method.ToUpper() switch
             {
                 "GET" => await GetAsync(userId),
-                "POST" => await UpsertAsync(req),
-                "PUT" => await UpsertAsync(req),
+                "POST" => await UpsertAsync(req, userId, null),
+                // "PUT" => await UpsertAsync(req, userId),
+                "DELETE" => await DeleteAsync(userId),
+                _ => new BadRequestResult(),
+            };
+
+            return response;
+        }
+
+        [FunctionName("UserBars_GetPutDelete")]
+        public async Task<IActionResult> RunAsync_GetPutDelete(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "put", "delete", Route = "users/{userId}/bars/{barId}")] HttpRequest req,
+            string userId, string barId)
+        {
+            IActionResult response = req.Method.ToUpper() switch
+            {
+                "GET" => await GetAsync(userId),
+                // "POST" => await UpsertAsync(req, userId, null),
+                "PUT" => await UpsertAsync(req, userId, barId),
                 "DELETE" => await DeleteAsync(userId),
                 _ => new BadRequestResult(),
             };
@@ -51,11 +68,13 @@ namespace BarLib.ServiceHost.Functions
             }
         }
 
-        private async Task<IActionResult> UpsertAsync(HttpRequest req)
+        private async Task<IActionResult> UpsertAsync(HttpRequest req, string userId, string? barId)
         {
             var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var bar = JsonConvert.DeserializeObject<UserBar>(requestBody);
             bar.HashCode = bar.GetHashCode();
+            bar.UserId = userId;
+            bar.Id = barId ?? bar.Id;
 
             bar = await context.UpsertAsync(bar);
 

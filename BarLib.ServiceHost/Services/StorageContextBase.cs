@@ -38,7 +38,7 @@ namespace BarLib.ServiceHost
             {
                 var sub = await query.ReadNextAsync();
                 items.AddRange(sub.Resource);
-            }
+            }   
 
             return items;
         }

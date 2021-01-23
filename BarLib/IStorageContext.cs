@@ -13,5 +13,14 @@ namespace BarLib
         Task DeleteAsync(string id);
     }
 
+
+    public interface IUserStorageContext<T> where T : UserModelBase{
+        
+        Task<IList<T>> GetAsync(string userId);
+        Task<T?> GetAsync(string userId, string id);
+        Task<T> UpserAsync(T item);
+        Task DeleteAsync(string id);
+
+    }
     
 }

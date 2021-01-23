@@ -22,30 +22,32 @@ namespace BarLib.ConsoleApp
         {
             var url = "http://localhost:7071/api/";
 
-            var context = new IngredientStorageContext();
+            // var context = new IngredientStorageContext();
             var uploader = new Uploader(url);
-            Console.WriteLine("Ingredients");
-            foreach (var i in await context.GetAsync())
-            {
-                uploader.Put($"ingredients/{i.Id}", i);
-                Thread.Sleep(1000);
-            }
+            // Console.WriteLine("Ingredients");
+            // foreach (var i in await context.GetAsync())
+            // {
+            //     uploader.Put($"ingredients/{i.Id}", i);
+            //     Thread.Sleep(1000);
+            // }
 
-            Console.WriteLine("Drinks");
-            var drinkContext = new DrinkStorageContent();
-            foreach(var d in await drinkContext.GetAsync())
-            {
-                uploader.Put($"drinks/{d.Id}", d);
-                Thread.Sleep(1000);
-            }
+            // Console.WriteLine("Drinks");
+            // var drinkContext = new DrinkStorageContent();
+            // foreach(var d in await drinkContext.GetAsync())
+            // {
+            //     uploader.Put($"drinks/{d.Id}", d);
+            //     Thread.Sleep(1000);
+            // }
 
             Console.WriteLine("Bar");
             var userBar = LoadUserBar("mybar.txt");
             userBar.Id = Guid.NewGuid().ToString();
             userBar.UserId = Guid.NewGuid().ToString();
 
+            Console.WriteLine(JsonConvert.SerializeObject(userBar));
+
             // var uploader = new Uploader("http://localhost:7071/api/");
-            uploader.Put($"users/{userBar.UserId}/bar", userBar);
+            // uploader.Put($"users/{userBar.UserId}/bars/{userBar.Id}", userBar);
         }
 
         public static void Generate()
