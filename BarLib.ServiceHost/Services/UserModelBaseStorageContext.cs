@@ -60,7 +60,7 @@ namespace BarLib.ServiceHost
 
         public async Task<T?> GetAsync(string userId, string id)
         {
-            var def = new QueryDefinition("SELECT * FROM c WHERE c.userId=@UserId AND c.Id=@Id AND c.type=@Type")
+            var def = new QueryDefinition("SELECT * FROM c WHERE c.userId=@UserId AND c.id=@Id AND c.type=@Type")
                 .WithParameter("@UserId", userId)
                 .WithParameter("@Id", id)
                 .WithParameter("@Type", Activator.CreateInstance<T>().ObjectType);

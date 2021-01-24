@@ -61,20 +61,28 @@ namespace BarLib
             return items;
         }
 
+        // public async Task<UserLibrary?> GetAsync()
+
         public async Task<UserLibrary?> GetAsync(string userId, string barId)
         {
-            var def = new QueryDefinition("SELECT * FROM c WHERE c.userId=@UserId AND c.barId=@BarId AND c.type=@Type")
-                .WithParameter("@UserId", userId)
-                .WithParameter("@BarID", barId)
-               .WithParameter("@Type", "userLibrary");
+            var lib = container.GetItemLinqQueryable<UserLibrary>(true)
+                .Where(z=>z.UserId ==userId && z.BarId == barId && z.ObjectType == "userLibrary")
+                .ToList();
 
-            var items = await QueryAsync(def);
-            return items.FirstOrDefault();
+            return lib.FirstOrDefault();
+            // var def = new QueryDefinition("SELECT * FROM c WHERE c.userId=@UserId AND c.barId=@BarId AND c.type=@Type")
+            //     .WithParameter("@UserId", userId)
+            //     .WithParameter("@BarID", barId)
+            //    .WithParameter("@Type", "userLibrary");
+
+
+            // var items = await QueryAsync(def);
+            // return items.FirstOrDefault();
         }
 
         public async Task<UserLibrary?> GetAsync(string id)
         {
-            var def = new QueryDefinition("SELECT * FROM c WHERE c.Id=@Id AND c.type=@Type")
+            var def = new QueryDefinition("SELECT * FROM c WHERE c.id=@Id AND c.type=@Type")
                 .WithParameter("@Id", id)
                .WithParameter("@Type", "userLibrary");
 

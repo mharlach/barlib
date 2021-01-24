@@ -15,24 +15,24 @@ namespace BarLib.ServiceHost.Functions
     public class LibraryRefresh
     {
         private readonly ILogger log;
-        private readonly IStorageContext<UserBar> barContext;
-        private readonly IStorageContext<UserLibrary> libraryContext;
+        private readonly IUserStorageContext<UserBar> barContext;
+        private readonly ILibraryStorageContext libraryContext;
         private readonly ILibraryGenerator libraryGenerator;
 
-        public LibraryRefresh(ILogger log, IStorageContext<UserBar> barContext, IStorageContext<UserLibrary> libraryContext, ILibraryGenerator libraryGenerator)
+        public LibraryRefresh(ILoggerFactory factory, IUserStorageContext<UserBar> barContext, ILibraryStorageContext libraryContext, ILibraryGenerator libraryGenerator)
         {
-            this.log = log;
+            this.log = factory.CreateLogger<LibraryRefresh>();
             this.barContext = barContext;
             this.libraryContext = libraryContext;
             this.libraryGenerator = libraryGenerator;
         }
 
         [FunctionName("UserLibrary_Refresh")]
-        public async Task<IActionResult> RefreshAsync([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "users/{userId}/library/refresh")] HttpRequest req,
-            string userId)
+        public async Task<IActionResult> RefreshAsync([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "users/{userId}/bars/{barId}/library/refresh")] HttpRequest req,
+            string userId, string barId)
         {
-            var getLibraryTask = libraryContext.GetAsync(userId);
-            var bar = await barContext.GetAsync(userId);
+            var getLibraryTask = libraryContext.GetAsync(userId, barId);
+            var bar = await barContext.GetAsync(userId, barId);
             if (bar == null)
             {
                 return new NotFoundResult();
@@ -47,6 +47,7 @@ namespace BarLib.ServiceHost.Functions
                 {
                     Id = Guid.NewGuid().ToString(),
                     UserId = userId,
+                    BarId = barId,
                 };
             }
             library.Updated = DateTime.UtcNow;
@@ -56,7 +57,9 @@ namespace BarLib.ServiceHost.Functions
                 Name = x.Name,
             }).ToList();
 
-            return new NoContentResult();
+            await libraryContext.UpsertAsync(library);
+
+            return new OkObjectResult(library);
         }
     }
 }

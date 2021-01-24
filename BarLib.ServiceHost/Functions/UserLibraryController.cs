@@ -15,9 +15,9 @@ namespace BarLib.ServiceHost.Functions
         private readonly ILogger log;
         private readonly ILibraryStorageContext context;
 
-        public UserLibraryController(ILogger log, ILibraryStorageContext context)
+        public UserLibraryController(ILoggerFactory factory, ILibraryStorageContext context)
         {
-            this.log = log;
+            this.log = factory.CreateLogger<UserLibraryController>();
             this.context = context;
         }
 
