@@ -8,23 +8,6 @@ using System;
 
 namespace BarLib.ServiceHost
 {
-    // public class UserModelBaseStorageContext<T> : StorageContextBase<T>, IStorageContext<T> where T : UserModelBase
-    // {
-    //     private ILogger log;
-
-    //     public UserModelBaseStorageContext(ILoggerFactory factory, IConfiguration config)
-    //     : base(factory, config, "models")
-    //     {
-    //         this.log = factory.CreateLogger<UserModelBaseStorageContext<T>>();
-    //     }
-
-    //     public async Task<T?> GetAsync(string id)
-    //     {
-    //         var queryDef = new QueryDefinition("SELECT * FROM c WHERE c.userId=@userId").WithParameter("@userId", id);
-    //         var response = await GetAsync(queryDef);
-    //         return response.FirstOrDefault();
-    //     }
-    // }
 
     public class UserModelBaseStorageContext<T> : IUserStorageContext<T> where T : UserModelBase
     {

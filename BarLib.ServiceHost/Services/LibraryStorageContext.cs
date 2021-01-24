@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Azure.Cosmos;
+using Microsoft.Azure.Cosmos.Linq;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
@@ -44,50 +45,43 @@ namespace BarLib
 
         public async Task<List<UserLibrary>> GetAll()
         {
-            var def = new QueryDefinition("SELECT * FROM c WHERE c.type=@Type")
-                .WithParameter("@Type", "userLibrary");
+            var feed = container.GetItemLinqQueryable<UserLibrary>()
+                            .ToFeedIterator();
 
-            var items = await QueryAsync(def);
-            return items;
+            var results = await QueryAsync(feed);
+            return results.ToList();
         }
 
         public async Task<List<UserLibrary>> GetAll(string userId)
         {
-            var def = new QueryDefinition("SELECT * FROM c WHERE c.userId=@UserId AND c.type=@Type")
-                .WithParameter("@UserId", userId)
-               .WithParameter("@Type", "userLibrary");
+            var feed = container.GetItemLinqQueryable<UserLibrary>()
+                .Where(z => z.UserId == userId)
+                .ToFeedIterator();
 
-            var items = await QueryAsync(def);
-            return items;
+            var results = await QueryAsync(feed);
+            return results.ToList();
         }
 
         // public async Task<UserLibrary?> GetAsync()
 
         public async Task<UserLibrary?> GetAsync(string userId, string barId)
         {
-            var lib = container.GetItemLinqQueryable<UserLibrary>(true)
-                .Where(z=>z.UserId ==userId && z.BarId == barId && z.ObjectType == "userLibrary")
-                .ToList();
+            var feed = container.GetItemLinqQueryable<UserLibrary>(true)
+                .Where(z => z.UserId == userId && z.BarId == barId)
+                .ToFeedIterator();
 
-            return lib.FirstOrDefault();
-            // var def = new QueryDefinition("SELECT * FROM c WHERE c.userId=@UserId AND c.barId=@BarId AND c.type=@Type")
-            //     .WithParameter("@UserId", userId)
-            //     .WithParameter("@BarID", barId)
-            //    .WithParameter("@Type", "userLibrary");
-
-
-            // var items = await QueryAsync(def);
-            // return items.FirstOrDefault();
+            var results = await QueryAsync(feed);
+            return results.FirstOrDefault();
         }
 
         public async Task<UserLibrary?> GetAsync(string id)
         {
-            var def = new QueryDefinition("SELECT * FROM c WHERE c.id=@Id AND c.type=@Type")
-                .WithParameter("@Id", id)
-               .WithParameter("@Type", "userLibrary");
+            var feed = container.GetItemLinqQueryable<UserLibrary>()
+                .Where(z => z.Id == id)
+                .ToFeedIterator();
 
-            var items = await QueryAsync(def);
-            return items.FirstOrDefault();
+            var results = await QueryAsync(feed);
+            return results.FirstOrDefault();
         }
 
         public async Task<UserLibrary> UpsertAsync(UserLibrary item)
@@ -98,15 +92,12 @@ namespace BarLib
             return response.Resource;
         }
 
-        private async Task<List<UserLibrary>> QueryAsync(QueryDefinition def)
+        public async Task<IEnumerable<UserLibrary>> QueryAsync(FeedIterator<UserLibrary> feed)
         {
-            var query = container.GetItemQueryIterator<UserLibrary>(def);
             var items = new List<UserLibrary>();
-
-            while (query.HasMoreResults)
+            while (feed.HasMoreResults)
             {
-                var sub = await query.ReadNextAsync();
-                items.AddRange(sub.Resource);
+                items.AddRange(await feed.ReadNextAsync());
             }
 
             return items;
