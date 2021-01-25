@@ -12,16 +12,16 @@ using Newtonsoft.Json;
 
 namespace BarLib.ServiceHost.Functions
 {
-    public class LibraryRefresh
+    public class LibraryRefreshController
     {
         private readonly ILogger log;
         private readonly IUserStorageContext<UserBar> barContext;
         private readonly ILibraryStorageContext libraryContext;
         private readonly ILibraryGenerator libraryGenerator;
 
-        public LibraryRefresh(ILoggerFactory factory, IUserStorageContext<UserBar> barContext, ILibraryStorageContext libraryContext, ILibraryGenerator libraryGenerator)
+        public LibraryRefreshController(ILoggerFactory factory, IUserStorageContext<UserBar> barContext, ILibraryStorageContext libraryContext, ILibraryGenerator libraryGenerator)
         {
-            this.log = factory.CreateLogger<LibraryRefresh>();
+            this.log = factory.CreateLogger<LibraryRefreshController>();
             this.barContext = barContext;
             this.libraryContext = libraryContext;
             this.libraryGenerator = libraryGenerator;
@@ -31,31 +31,15 @@ namespace BarLib.ServiceHost.Functions
         public async Task<IActionResult> RefreshAsync([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "users/{userId}/bars/{barId}/library/refresh")] HttpRequest req,
             string userId, string barId)
         {
-            var getLibraryTask = libraryContext.GetAsync(userId, barId);
             var bar = await barContext.GetAsync(userId, barId);
             if (bar == null)
             {
                 return new NotFoundResult();
             }
 
-            var updatedDrinks = await libraryGenerator.BuildAsync(bar);
+            var library = await libraryContext.GetAsync(userId, barId);
 
-            var library = await getLibraryTask;
-            if (library == null)
-            {
-                library = new UserLibrary
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    UserId = userId,
-                    BarId = barId,
-                };
-            }
-            library.Updated = DateTime.UtcNow;
-            library.Drinks = updatedDrinks.Select(x => new ItemPair
-            {
-                Id = x.Id,
-                Name = x.Name,
-            }).ToList();
+            library = await libraryGenerator.BuildLibraryAsync(bar, library);
 
             await libraryContext.UpsertAsync(library);
 
