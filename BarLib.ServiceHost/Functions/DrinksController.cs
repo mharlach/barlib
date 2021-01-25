@@ -16,12 +16,18 @@ namespace BarLib.ServiceHost.Functions
         private readonly ILogger log;
         private readonly IStorageContext<Drink> drinkContext;
         private readonly IStorageContext<Ingredient> ingredientContext;
+        private readonly ISystemStatService systemStatService;
 
-        public DrinksController(ILogger<DrinksController> log, IStorageContext<Drink> drinkContext, IStorageContext<Ingredient> ingredientContext)
+        public DrinksController(
+            ILogger<DrinksController> log, 
+            IStorageContext<Drink> drinkContext, 
+            IStorageContext<Ingredient> ingredientContext,
+            ISystemStatService systemStatService)
         {
             this.log = log;
             this.drinkContext = drinkContext;
             this.ingredientContext = ingredientContext;
+            this.systemStatService = systemStatService;
         }
 
         [FunctionName("Drinks_GetPost")]
@@ -82,6 +88,7 @@ namespace BarLib.ServiceHost.Functions
             drink.Id = id;
 
             drink = await drinkContext.UpsertAsync(drink);
+            await systemStatService.UpdateDrinkVersionAsync();
 
             return new OkObjectResult(drink);
         }

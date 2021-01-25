@@ -14,6 +14,12 @@ namespace BarLib
         [JsonProperty("barId")]
         public string BarId { get; set; } = string.Empty;
 
+        [JsonProperty("drinksVersion")]
+        public string DrinksVersion { get; set; } = string.Empty;
+
+        [JsonProperty("barHashCode")]
+        public int BarHashCode {get;set;} 
+
         public override string ObjectType { get; set; } = "userLibrary";
 
         public override int GetHashCode()

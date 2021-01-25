@@ -17,6 +17,7 @@ namespace BarLib.ServiceHost
             builder.Services.AddSingleton<IUserStorageContext<UserBar>, UserModelBaseStorageContext<UserBar>>();
             builder.Services.AddSingleton<ILibraryStorageContext, LibraryStorageContext>();
             builder.Services.AddSingleton<ILibraryGenerator, BruteForceLibraryGenerator>();
+            builder.Services.AddSingleton<ISystemStatsStorageContext,SystemStatsStorageContext>();
         }
 
         public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)

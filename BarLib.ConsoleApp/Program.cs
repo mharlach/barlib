@@ -50,20 +50,20 @@ namespace BarLib.ConsoleApp
             // uploader.Put($"users/{userBar.UserId}/bars/{userBar.Id}", userBar);
         }
 
-        public static void Generate()
-        {
-            var generator = new BruteForceLibraryGenerator(new DrinkStorageContent(), new IngredientStorageContext());
-            var drinksListTask = generator.BuildAsync(LoadUserBar("mybar.txt"));
+        // public static void Generate()
+        // {
+        //     var generator = new BruteForceLibraryGenerator(new DrinkStorageContent(), new IngredientStorageContext(), new Syste);
+        //     var drinksListTask = generator.BuildAsync(LoadUserBar("mybar.txt"));
 
-            drinksListTask.Wait();
+        //     drinksListTask.Wait();
 
-            var drinks = drinksListTask.Result;
+        //     var drinks = drinksListTask.Result;
 
-            foreach (var d in drinks)
-            {
-                Console.WriteLine($"{d.Name}");
-            }
-        }
+        //     foreach (var d in drinks)
+        //     {
+        //         Console.WriteLine($"{d.Name}");
+        //     }
+        // }
 
         private static void ImportIngredientList()
         {

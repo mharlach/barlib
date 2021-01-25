@@ -8,26 +8,29 @@ namespace BarLib
     public interface ILibraryGenerator
     {
         Task<UserLibrary> BuildLibraryAsync(UserBar bar, UserLibrary? library);
-        Task<List<Drink>> BuildAsync(UserBar bar);
+        // Task<List<Drink>> BuildAsync(UserBar bar);
     }
 
     public class BruteForceLibraryGenerator : ILibraryGenerator
     {
         private readonly IStorageContext<Drink> drinkContext;
         private readonly IStorageContext<Ingredient> ingredientContext;
+        private readonly ISystemStatsStorageContext statsStorageContext;
 
         public BruteForceLibraryGenerator(
             IStorageContext<Drink> drinkContext,
-            IStorageContext<Ingredient> ingredientContext)
+            IStorageContext<Ingredient> ingredientContext,
+            ISystemStatsStorageContext statsStorageContext)
         {
             this.drinkContext = drinkContext;
             this.ingredientContext = ingredientContext;
+            this.statsStorageContext = statsStorageContext;
         }
 
         public async Task<List<Drink>> BuildAsync(UserBar bar)
         {
             var barContentsKeys = bar.AvailableIngredients.Select(x => x.Id).ToList();
-            var ingredientsById = (await ingredientContext.GetAsync()).ToDictionary(x=>x.Id);
+            var ingredientsById = (await ingredientContext.GetAsync()).ToDictionary(x => x.Id);
 
             // select * from d where d.ingredients.id
             var allDrinks = await drinkContext.GetAsync();
@@ -36,10 +39,10 @@ namespace BarLib
             {
                 var missing = false;
                 foreach (var i in d.Ingredients)
-                {   
-                    if(ingredientsById.TryGetValue(i.IngredientId, out var ingredient) &&
+                {
+                    if (ingredientsById.TryGetValue(i.IngredientId, out var ingredient) &&
                     ingredient.IngredientType != IngredientType.Garnish &&
-                    barContentsKeys.Contains(i.IngredientId)== false)
+                    barContentsKeys.Contains(i.IngredientId) == false)
                     {
                         missing = true;
                         break;
@@ -51,7 +54,8 @@ namespace BarLib
                     // }
                 }
 
-                if(missing==false){
+                if (missing == false)
+                {
                     allowed.Add(d);
                 }
             }
@@ -61,16 +65,27 @@ namespace BarLib
 
         public async Task<UserLibrary> BuildLibraryAsync(UserBar bar, UserLibrary? library)
         {
-            var drinks = await BuildAsync(bar);
-            library = library ?? new UserLibrary{
+            library = library ?? new UserLibrary
+            {
                 Id = Guid.NewGuid().ToString(),
                 BarId = bar.Id,
                 UserId = bar.UserId,
             };
 
-            library.Drinks = drinks.Select(x=>new ItemPair{Id = x.Id, Name = x.Name}).ToList();
+            var stats = await statsStorageContext.GetAsync();
+            if(library.DrinksVersion == stats.DrinksVersion && library.BarHashCode == bar.HashCode)
+            {
+                return library;
+            }
+
+            var drinks = await BuildAsync(bar);
+
+            library.Drinks = drinks.Select(x => new ItemPair { Id = x.Id, Name = x.Name }).ToList();
             library.Updated = DateTime.UtcNow;
+            library.HashCode = library.GetHashCode();
+            library.BarHashCode = bar.HashCode;
 
             return library;
         }
     }
+}
