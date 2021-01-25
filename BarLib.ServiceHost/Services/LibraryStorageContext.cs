@@ -86,6 +86,7 @@ namespace BarLib
 
         public async Task<UserLibrary> UpsertAsync(UserLibrary item)
         {
+            item.HashCode = item.GetHashCode();
             item.PartitionKey = System.Math.Abs(item.Id.GetHashCode() % 1000).ToString();
             var response = await container.UpsertItemAsync<UserLibrary>(item, new PartitionKey(item.PartitionKey));
 
