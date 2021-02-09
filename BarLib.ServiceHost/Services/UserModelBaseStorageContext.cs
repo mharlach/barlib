@@ -77,5 +77,4 @@ namespace BarLib.ServiceHost
         public int PartitionKey(string Id) => System.Math.Abs(Id.GetHashCode() % 1000);
 
     }
-
 }

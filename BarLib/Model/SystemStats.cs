@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class SystemStats
 {
+    
     public string DrinksVersion {get;set;} = string.Empty;
 
     // public List<string> DrinkIds {get;set;} = new List<string>();
