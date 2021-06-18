@@ -88,7 +88,7 @@ namespace BarLib.ServiceHost.Functions
             drink.Id = id;
 
             drink = await drinkContext.UpsertAsync(drink);
-            await systemStatService.UpdateDrinkVersionAsync();
+            // await systemStatService.UpdateDrinkVersionAsync();
 
             return new OkObjectResult(drink);
         }
