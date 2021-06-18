@@ -11,7 +11,8 @@ namespace BarLib
         Garnish,
         Liqueur,
         Beer,
-        Wine
+        Wine,
+        Unknown
     }
 
     public class Ingredient : ModelBase
