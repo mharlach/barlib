@@ -94,7 +94,7 @@
     "inputs": [
         {
             "id": "project",
-            "options": ["BarLib.ConsoleApp","BarLib.ServiceHost"],
+            "options": ["BarLib.ConsoleApp","BarLib.ServiceHost", "BarLib.WebApp"],
             "default": "BarLib.ConsoleApp",
             "description": "Select project to build",
             "type": "pickString"

@@ -1,0 +1,80 @@
+{
+    "name": "ingredients",
+    "fields": [
+      {
+        "name": "id",
+        "type": "Edm.String",
+        "facetable": false,
+        "filterable": false,
+        "key": true,
+        "retrievable": true,
+        "searchable": true,
+        "sortable": false,
+        "analyzer": "standard.lucene",
+        "indexAnalyzer": null,
+        "searchAnalyzer": null,
+        "synonymMaps": [],
+        "fields": []
+      },
+      {
+        "name": "name",
+        "type": "Edm.String",
+        "facetable": false,
+        "filterable": false,
+        "key": false,
+        "retrievable": true,
+        "searchable": true,
+        "sortable": true,
+        "analyzer": "standard.lucene",
+        "indexAnalyzer": null,
+        "searchAnalyzer": null,
+        "synonymMaps": [],
+        "fields": []
+      },
+      {
+        "name": "description",
+        "type": "Edm.String",
+        "facetable": false,
+        "filterable": false,
+        "key": false,
+        "retrievable": true,
+        "searchable": true,
+        "sortable": false,
+        "analyzer": "standard.lucene",
+        "indexAnalyzer": null,
+        "searchAnalyzer": null,
+        "synonymMaps": [],
+        "fields": []
+      },
+      {
+        "name": "type",
+        "type": "Edm.String",
+        "facetable": true,
+        "filterable": true,
+        "key": false,
+        "retrievable": true,
+        "searchable": true,
+        "sortable": true,
+        "analyzer": "standard.lucene",
+        "indexAnalyzer": null,
+        "searchAnalyzer": null,
+        "synonymMaps": [],
+        "fields": []
+      }
+    ],
+    "suggesters": [],
+    "scoringProfiles": [],
+    "defaultScoringProfile": "",
+    "corsOptions": null,
+    "analyzers": [],
+    "charFilters": [],
+    "tokenFilters": [],
+    "tokenizers": [],
+    "similarity": {
+      "@odata.type": "#Microsoft.Azure.Search.BM25Similarity",
+      "k1": null,
+      "b": null
+    },
+    "encryptionKey": null,
+    "@odata.etag": "\"0x8D9328EB0472B9B\""
+  }
